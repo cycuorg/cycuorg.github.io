@@ -1,4 +1,4 @@
-# cmstemplate
+# cycu.org
 Github pages template for cmsimde submodule
 
-http://mde.tw/cmstemplate
+http://cycu.org
