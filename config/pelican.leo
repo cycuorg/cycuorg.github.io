@@ -17,6 +17,7 @@
 <v t="leo.20220312113340.1"><vh>blog content</vh></v>
 <v t="leo.20220312113359.1"><vh>python ref</vh></v>
 <v t="leo.20220312113414.1"><vh>Blogger 按鈕</vh>
+<v t="leo.20220312081857.1"><vh>blog title and id</vh></v>
 <v t="leo.20220312113414.2"><vh>@button add_to_cblogger</vh></v>
 <v t="leo.20220312113858.1"><vh>@button edit_to_cblogger</vh></v>
 </v>
@@ -73,8 +74,8 @@
 <v t="leo.20170710022054.1"><vh>可以另建節點存放 markdown 目錄下的 md 檔案</vh></v>
 <v t="leo.20170710022041.1"><vh>@path markdown</vh>
 <v t="leo.20180115115910.1"><vh>2022</vh>
-<v t="leo.20180423103639.1"><vh>cycu.org 起始網誌</vh>
-<v t="leo.20180423103656.1"><vh>@edit 20220312.md</vh></v>
+<v t="leo.20180423103656.1"><vh>@clean 20220312.md</vh>
+<v t="leo.20220312092217.1"><vh>cycuorg blogger 與 Pelican 網誌</vh></v>
 </v>
 </v>
 </v>
@@ -105,7 +106,135 @@ g.es("admin pelican Github 執行完畢")
 <t tx="leo.20180115093448.1"></t>
 <t tx="leo.20180115093726.1"></t>
 <t tx="leo.20180115115910.1"></t>
-<t tx="leo.20180423103639.1"></t>
+<t tx="leo.20180423103656.1">@language md
+---
+Title: cycuorg blogger 與 Pelican 網誌
+Date: 2022-03-12 11:11
+Category: Pelican
+Tags: cycu-org
+Slug: 2022-cycuorg-blogger-and--pelican-blog
+Author: yen
+---
+
+以下的這些瑣碎紀錄源自 2004 年公開推出的 Gmail 與 2006 年推出的 Google Apps for Your Domain (也就是之後的 G Suite 以及現在的 [Google Workspace]).
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others
+
+
+
+
+
+
+
+
+
+
+</t>
+<t tx="leo.20220312081857.1">網誌名稱: Chiaming Yen's Cyber Universe
+blog id: 7614197805383305517
+
+import os
+# 配合使用 credential token
+import pickle
+from googleapiclient.discovery import build
+# pip install google-api-python-client
+
+os.environ['TZ'] = 'Asia/Taipei'
+with open('yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
+    credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
+#print(service)
+users = service.users()
+# 取得使用者 profile 資料
+user = users.get(userId='self').execute()
+blogs = service.blogs()
+print('網誌名稱: %s' % user['displayName'])
+# 取得使用者所建立網誌名稱
+blogs = blogs.listByUser(userId='self').execute()
+# post_id is now blogs["items"][0]["id"]
+blog_id = blogs["items"][0]["id"]
+print("blog id:", blog_id)</t>
+<t tx="leo.20220312092217.1">因為 cycu.org 就是在當時申請帳號時建立的. 從 [Wayback Machine] 還能發現, 最早的紀錄是 [2003 年 12 月], 採用 Xoops 在 Apache 1.3.28 版的 WWW 伺服器所建立的網站. 使用的電子郵件系統就是 Gmail.
+
+現在的 [cycuorg blogger] 是採用 yen 在 cycu dot org 網域中的帳號所建立, 主要內容來自 [CYCU]. [Google Workspace] 只負責 Gmail 帳號的設置. Blogger 與 [Pelican Blog] 彼此保持內容同步. Youtube 影片則透過 yencycuorg 在 Gmail 的 [channel] 上傳. 而 [CYCU] 使用 Github Pages 建立, 綁定的帳號為 cycuorg. 
+
+[cycuorg blogger]: https://cycuorg.blogspot.com
+[CYCU]: https://cycu.org
+[channel]: https://www.youtube.com/channel/UCOJQSG4KAaKMKK82dEFnLsw
+[Pelican Blog]: https://blog.getpelican.com/
+[Google Workspace]: https://workspace.google.com/
+[Wayback Machine]: https://web.archive.org
+[2003 年 12 月]: https://web.archive.org/web/20031220081545/http://www.cycu.org/
+
+Blogger Python API
+----
+
+Goggle cloud apis 網站位於 &lt;https://console.cloud.google.com/apis/&gt;, 若要透過 Python 程式建立 Blogger 網誌, 
+
+Credential 選擇 OAuth 2.0 Client IDs 
+type: Desktop
+secrets 格式: json
+必須透過下列程式轉為 token, 才能為 google-api-python-client 模組使用
+
+# get secrets: https://console.developers.google.com
+# https://developers.google.com/blogger/docs/3.0/using
+# pip install google_auth_oauthlib
+# under Mac command + b to execute
+import pickle
+import os
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+
+
+SCOPES = ['https://www.googleapis.com/auth/blogger', ]
+
+# we check if the file tBo store the credentials exists
+if not os.path.exists('./../../yen_cycu_blogger_token.dat'):
+
+    flow = InstalledAppFlow.from_client_secrets_file('./../../yen_cycu_blogger_secrets.json', SCOPES)
+    credentials = flow.run_local_server()
+
+    with open('yen_cycu_blogger_token.dat', 'wb') as credentials_dat:
+        pickle.dump(credentials, credentials_dat)
+else:
+    with open('yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
+        credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
+g.es(service)
+
+已經將 .json 轉為 token.dat 後, 可以 pickle.load() 取出 credentials, 然後利用 service = build('blogger', 'v3', credentials=credentials) 得到
+blogger service 物件.
+
+from markdown import markdown
+from oauth2client import client
+# pip install oauth2client
+import os
+# 配合使用 credential token
+import pickle
+from googleapiclient.discovery import build
+# pip install google-api-python-client
+
+os.environ['TZ'] = 'Asia/Taipei'
+with open('./../../yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
+    credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
+blogs = service.blogs()
+# 取得使用者所建立網誌名稱
+blogs = blogs.listByUser(userId='self').execute()
+# post_id is now blogs["items"][0]["id"]
+#blog_id = blogs["items"][0]["id"]
+# cycuorg.blogspot.com 的 blog_id
+blog_id = "7614197805383305517"
+#for blog in blogs['items']:
+    #print(blog['name'], blog['url'])
+posts = service.posts()
+
+
+
+</t>
 <t tx="leo.20220312110656.1">@language python
 # get secrets: https://console.developers.google.com
 # https://developers.google.com/blogger/docs/3.0/using
@@ -233,7 +362,7 @@ def get_cat_tag_content(data):
     # 再將第 9 行之後的資料數列串回成以跳行隔開的資料
     content = "\n".join(data_list[8:])
     # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Blogger 的 &lt;!--more--&gt;
-    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', "&lt;!--more--&gt;")
     # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
     #content = content.replace('~~~python', '[code lang="python"]')
     #content = content.replace('~~~', '[/code]')
@@ -271,7 +400,7 @@ try:
     blogs = blogs.listByUser(userId='self').execute()
     # post_id is now blogs["items"][0]["id"]
     #blog_id = blogs["items"][0]["id"]
-    blog_id = "2403495118140401474"
+    blog_id = "7614197805383305517"
     #for blog in blogs['items']:
         #print(blog['name'], blog['url'])
     posts = service.posts()
@@ -567,7 +696,7 @@ def get_cat_tag_content(data):
     # 再將第 9 行之後的資料數列串回成以跳行隔開的資料
     content = "\n".join(data_list[8:])
     # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Blogger 的 &lt;!--more--&gt;
-    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', "&lt;!--more--&gt;")
     # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
     #content = content.replace('~~~python', '[code lang="python"]')
     #content = content.replace('~~~', '[/code]')
@@ -598,7 +727,7 @@ try:
     # 取得使用者所建立網誌名稱
     blogs = blogs.listByUser(userId='self').execute()
     #blog_id = blogs["items"][0]["id"]
-    blog_id = "2403495118140401474"
+    blog_id = "7614197805383305517"
     # 設法取得原 post 的 id
     postid_outline = p.getLastChild()
     # 直接從標題取得 post 的 id 號碼
