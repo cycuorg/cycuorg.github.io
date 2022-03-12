@@ -2,7 +2,7 @@
         <head>
         <title>cycuorg</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -139,10 +139,53 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Portable << <a href='Portable.html'>Previous</a> <a href='Lua 解譯.html'>Next</a> >> Lua 解譯<br /><h1>2021Fall</h1>
-<p>配合電腦輔助設計室所建立的 <a href="https://drive.google.com/file/d/1MwUQNWATIgwWoT--HELUHcepNsNi4uTP/view?usp=sharing">portable_hybrid.7z</a> 可攜程式環境系統.</p>
-<p>註: portable_hybrid.7z 是儲存在 2021fall At mde 的 GDrive 中.</p>
-<br />Portable << <a href='Portable.html'>Previous</a> <a href='Lua 解譯.html'>Next</a> >> Lua 解譯</div>
+    <div id="tipue_search_content">Google << <a href='Google.html'>Previous</a> <a href='Heroku.html'>Next</a> >> Heroku<br /><h1>Blogger</h1>
+<p><a href="https://cycuorg.blogspot.com/">https://cycuorg.blogspot.com/</a></p>
+<p>利用 Blogger API 讓 Pelican Blog 與 Blogger 資料同步.</p>
+<p style="padding-left: 30px;"><a href="https://mde.tw/lab/blog/sync-pelican-and-blogger-content.html">https://mde.tw/lab/blog/sync-pelican-and-blogger-content.html</a></p>
+<p style="padding-left: 30px;">從<a href="https://console.cloud.google.com">https://console.cloud.google.com</a> 取得 json 格式的 secret 檔案後, 利用下列程式登入管理者帳號授權後, 將 json 資料轉為 data 格式, 之後的 Desktop 程式就可利用 data 格式的授權, 透過 Blogger API 管理與 secret 對應授權的 Blogger 網誌.</p>
+<p>Python 可攜系統中與 Google API 相關模組與版本參考:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">pip install google-api-python-client oauth2client google_auth_oauthlib google-auth
+
+google-api-core               1.28.0
+google-api-python-client      2.6.0
+google-auth                   1.30.1
+google-auth-httplib2          0.1.0
+google-auth-oauthlib          0.4.4
+googleapis-common-protos      1.53.0
+oauth2client                  4.1.3
+oauthlib                      3.1.1</pre>
+<p><a href="./../downloads/blogger_secret_convert_to_token.py">blogger_secret_convert_to_token.py</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># get secrets: https://console.developers.google.com
+# https://developers.google.com/blogger/docs/3.0/using
+# pip install google_auth_oauthlib
+# under Mac command + b to execute
+import pickle
+import os
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+
+
+SCOPES = ['https://www.googleapis.com/auth/blogger', ]
+
+# we check if the file to store the credentials exists
+if not os.path.exists('yen_cycu_blogger_token.dat'):
+
+    flow = InstalledAppFlow.from_client_secrets_file('yen_cycu_blogger_secrets.json', SCOPES)
+    credentials = flow.run_local_server()
+
+    with open('yen_cycu_blogger_token.dat', 'wb') as credentials_dat:
+        pickle.dump(credentials, credentials_dat)
+else:
+    with open('yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
+        credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
+print(service)</pre>
+<h4>參考資料:</h4>
+<p style="padding-left: 30px;">Google API Python client: <a href="https://pypi.org/project/google-api-python-client/">https://pypi.org/project/google-api-python-client/</a></p>
+<p style="padding-left: 30px;">Google Authentication library: <a href="https://pypi.org/project/google-auth-oauthlib/">https://pypi.org/project/google-auth-oauthlib/</a></p>
+<p style="padding-left: 60px;"></p><br />Google << <a href='Google.html'>Previous</a> <a href='Heroku.html'>Next</a> >> Heroku</div>
         
     <!-- footer -->
       <div class="container">

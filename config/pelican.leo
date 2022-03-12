@@ -10,6 +10,24 @@
 <v t="yen.20170108171605.2"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="yen.20170108171605.3"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
+<v t="leo.20220312110706.1"><vh>Blogger</vh>
+<v t="leo.20220312110656.1"><vh>create credential token (ctrl + b to execute)</vh>
+<v t="leo.20220312110656.2"><vh>blogs</vh></v>
+</v>
+<v t="leo.20220312113340.1"><vh>blog content</vh></v>
+<v t="leo.20220312113359.1"><vh>python ref</vh></v>
+<v t="leo.20220312113414.1"><vh>Blogger 按鈕</vh>
+<v t="leo.20220312113414.2"><vh>@button add_to_cblogger</vh></v>
+<v t="leo.20220312113858.1"><vh>@button edit_to_cblogger</vh></v>
+</v>
+<v t="leo.20220312113435.1"><vh>wordpress ref</vh>
+<v t="leo.20220312113435.2"><vh>new post</vh></v>
+<v t="leo.20220312113435.3"><vh>edit post</vh></v>
+<v t="leo.20220312113435.4"><vh>get post </vh></v>
+</v>
+<v t="leo.20220312113511.1"><vh>markdown to html</vh></v>
+<v t="leo.20220312113634.1"><vh>操作方法</vh></v>
+</v>
 <v t="yen.20170108171733.1"><vh>@path ../</vh>
 <v t="leo.20180115150519.1"><vh>@edit index.html</vh></v>
 <v t="yen.20170108171733.4"><vh>@edit .gitignore</vh></v>
@@ -54,9 +72,9 @@
 </v>
 <v t="leo.20170710022054.1"><vh>可以另建節點存放 markdown 目錄下的 md 檔案</vh></v>
 <v t="leo.20170710022041.1"><vh>@path markdown</vh>
-<v t="leo.20180115115910.1"><vh>2021</vh>
-<v t="leo.20180423103639.1"><vh>2021 Fall CP 課程</vh>
-<v t="leo.20180423103656.1"><vh>@edit 20210525.md</vh></v>
+<v t="leo.20180115115910.1"><vh>2022</vh>
+<v t="leo.20180423103639.1"><vh>cycu.org 起始網誌</vh>
+<v t="leo.20180423103656.1"><vh>@edit 20220312.md</vh></v>
 </v>
 </v>
 </v>
@@ -88,6 +106,520 @@ g.es("admin pelican Github 執行完畢")
 <t tx="leo.20180115093726.1"></t>
 <t tx="leo.20180115115910.1"></t>
 <t tx="leo.20180423103639.1"></t>
+<t tx="leo.20220312110656.1">@language python
+# get secrets: https://console.developers.google.com
+# https://developers.google.com/blogger/docs/3.0/using
+# pip install google_auth_oauthlib
+# under Mac command + b to execute
+import pickle
+import os
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+
+
+SCOPES = ['https://www.googleapis.com/auth/blogger', ]
+
+# we check if the file tBo store the credentials exists
+if not os.path.exists('./../../yen_cycu_blogger_token.dat'):
+
+    flow = InstalledAppFlow.from_client_secrets_file('./../../yen_cycu_blogger_secrets.json', SCOPES)
+    credentials = flow.run_local_server()
+
+    with open('yen_cycu_blogger_token.dat', 'wb') as credentials_dat:
+        pickle.dump(credentials, credentials_dat)
+else:
+    with open('yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
+        credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
+g.es(service)</t>
+<t tx="leo.20220312110656.2">https://cycuorg.blogspot.com/ 
+
+login 
+
+get secrets from https://console.developers.google.com
+
+執行 create_credential token 時,  Python 3.8 會自動取用系統的 Proxy, 必須關閉才能正確取得 token
+
+</t>
+<t tx="leo.20220312110706.1"></t>
+<t tx="leo.20220312113340.1">當利用 syntaxhighlighter 引用 html 標註時, 必須先使用 CMSiMDE 編輯器將資料轉為 html_entities 格式後, 再導入 pre 標註, 以免產生額外的對應關閉標註符號.</t>
+<t tx="leo.20220312113359.1">@language python
+'''
+可攜程式系統執行前, 必須額外安裝:
+
+pip install google-api-python-client
+
+pip install oauth2client
+'''
+__author__ = 'mdecourse At gmail.com'
+
+import sys
+from oauth2client import client
+from googleapiclient import sample_tools
+
+argv = ""
+# 認證並建立服務
+service, flags = sample_tools.init(
+  argv, 'blogger', 'v3', __doc__, "./../../client_secrets.json",
+  scope='https://www.googleapis.com/auth/blogger')
+
+try:
+    users = service.users()
+    # 取得使用者 profile 資料
+    user = users.get(userId='self').execute()
+    print('網誌名稱: %s' % user['displayName'])
+    blogs = service.blogs()
+    # 取得使用者所建立網誌名稱
+    blogs = blogs.listByUser(userId='self').execute()
+    # blog id is now blogs["items"][0]["id"]
+    for blog in blogs['items']:
+        print(blog['name'], blog['url'])
+    posts = service.posts()
+    # 新增網誌 post 時, 需要 blog id
+    '''
+    body = {
+    "kind": "blogger#post",
+    "id": blogs["items"][0]["id"],
+    "title": "透過 Python 程式新增網誌文章",
+    "content":"使用 Google Blogger API 可以利用程式新增網誌文章內容",
+    "labels": "test"
+    }
+    insert = posts.insert(blogId=blogs["items"][0]["id"], body=body)
+    posts_doc = insert.execute()
+    print(posts_doc)
+    '''
+    # 更新網誌文章時的 body
+    body = {
+    "kind": "blogger#post",
+    "title": "透過 Python 程式修改網誌文章",
+    "content":'''使用 Google Blogger API 可以利用程式修改網誌文章內容. http://mde.tw/cd2019
+    '''
+    }
+    # need to save postId to outline head
+    update = posts.update(blogId=blogs["items"][0]["id"], postId="1234567", body=body, publish=True)
+    update_doc = update.execute()
+    print(update_doc)
+except(client.AccessTokenRefreshError):
+    print("error")</t>
+<t tx="leo.20220312113414.1">這裡可以針對不同的網誌 credential 將同一份資料推向不同的 Blogger 網誌</t>
+<t tx="leo.20220312113414.2">@language python
+from markdown import markdown
+from oauth2client import client
+#from googleapiclient import sample_tools
+import os
+# 配合使用 credential token
+import pickle
+from googleapiclient.discovery import build
+#from google_auth_oauthlib.flow import InstalledAppFlow
+#from google.auth.transport.requests import Request
+
+os.environ['TZ'] = 'Asia/Taipei'
+with open('./../../yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
+    credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
+
+def get_cat_tag_content(data):
+    # 請注意, 因為 data 來自 .md 的檔案 內容, 第1行為 ---
+    # 用跳行符號分割
+    data_list = data.split("\n")
+    #第 2 行為 title
+    title= data_list[1]
+    #第 4 行為 category
+    category = data_list[3]
+    #第 5 行為 tags
+    tags = data_list[4]
+    # 有多項資料的 content 型別為數列
+    # 再將第 9 行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[8:])
+    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Blogger 的 &lt;!--more--&gt;
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
+    #content = content.replace('~~~python', '[code lang="python"]')
+    #content = content.replace('~~~', '[/code]')
+    return title, category, tags, content
+
+# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
+# p.h 為 @clean filename.md
+# 因為要使用 @clean 節點掛上為後的 blogger post_id, 因此改為讀 .md 檔案
+md_filename = p.h.split(" ")[1]
+with open(md_filename, 'r', encoding="utf-8") as content_file:
+    md_content = content_file.read()
+# title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
+title_str, category_str, tags_str, content = get_cat_tag_content(md_content)
+category = category_str.split(":")[1]
+tags = tags_str.split(":")[1].split(",")
+tags.append(category)
+# title 是一個單獨的字串
+title = title_str.split(":")[1]
+# 將 markdown 格式 content 轉為 html
+content = markdown(content)
+# 以下處理 content 的 &lt;h2&gt; 標題
+content = content.replace("&lt;h2&gt;", "&lt;h2&gt;&lt;font size='4'&gt;")
+content = content.replace("&lt;/h2&gt;", "&lt;/font&gt;&lt;/h2&gt;")
+# g.es(content)
+
+try:
+    '''
+    users = service.users()
+    # 取得使用者 profile 資料
+    user = users.get(userId='self').execute()
+    print('網誌名稱: %s' % user['displayName'])
+    '''
+    blogs = service.blogs()
+    # 取得使用者所建立網誌名稱
+    blogs = blogs.listByUser(userId='self').execute()
+    # post_id is now blogs["items"][0]["id"]
+    #blog_id = blogs["items"][0]["id"]
+    blog_id = "2403495118140401474"
+    #for blog in blogs['items']:
+        #print(blog['name'], blog['url'])
+    posts = service.posts()
+    # 新增網誌 post 時, 需要 post_id
+    body = {
+    "kind": "blogger#post",
+    "id": blog_id,
+    "title": title,
+    # 利用 markdown 函式, 將 .md 的內文轉為 html, 作為 Blogger 的文章內容
+    "content": content,
+    "labels": tags
+    }
+    insert = posts.insert(blogId=blog_id, body=body)
+    posts_doc = insert.execute()
+    post_id = posts_doc["id"]
+    #print(posts_doc)
+    # 改用 credential token 後不會產生 blogger.dat
+    #os.remove("blogger.dat")
+    # 利用最後的 child 節點來儲存 post_id
+    to_save_post_id = p.insertAsLastChild()   
+    # 改為內文為空的節點, id 直接標在 head 標題 
+    to_save_post_id.b = ""
+    to_save_post_id.h = post_id
+    # 因為新增節點, commander 必須 redraw
+    c.redraw()
+    g.es("post_id 為", post_id)
+    g.es("已經將資料送往 CBlogger!")
+except(client.AccessTokenRefreshError):
+    g.es("error")
+
+</t>
+<t tx="leo.20220312113435.1">http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html
+
+other ref
+    http://www.easonhsu.idv.tw/2017/01/use-blogger-python-api-to-publish-from.html</t>
+<t tx="leo.20220312113435.2"># new-to-wp button
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+ 
+def get_cat_tag_content(data):
+    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
+    # 用跳行符號分割
+    data_list = data.split("\n")
+    #第2行為 title
+    title= data_list[1]
+    #第3行為 category
+    category = data_list[2]
+    #第4行為 tags
+    tags = data_list[3]
+    # 有多項資料的 content 型別為數列
+    # 再將第7行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[6:])
+    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 &lt;!---more---&gt;
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
+    content = content.replace('~~~python', '[code lang="python"]')
+    content = content.replace('~~~', '[/code]')
+    return title, category, tags, content
+ 
+os.environ['TZ'] = 'Asia/Taipei'
+ 
+#################################
+filepath = "/your/wordpress/username/and/passwrod.txt"
+wordpress = "your.wordpress.site.domain"
+fo = open(filepath, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+ 
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+wordpress+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+ 
+status_draft = 0
+status_published = 1
+ 
+server = xmlrpc.client.ServerProxy(wp_url)
+ 
+# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
+title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
+# title 是一個單獨的字串
+title = title_str.split(":")[1]
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+# 先用 : 斷開標投頭的 Tags:, 然後再透過逗點隔開, 將標註轉為數列資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+ 
+post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
+# 利用最後的 child 節點來儲存 post_id
+to_save_post_id = p.insertAsLastChild()   
+# 改為內文為空的節點, id 直接標在 head 標題 
+to_save_post_id.b = ""
+to_save_post_id.h = post_id
+# 因為新增節點, commander 必須 redraw
+c.redraw() 
+ 
+g.es("post_id 為", post_id)
+g.es("已經送出資料!")</t>
+<t tx="leo.20220312113435.3"># edit-to-wp
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+ 
+def get_cat_tag_content(data):
+    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
+    # 用跳行符號分割
+    data_list = data.split("\n")
+    #第2行為 title
+    title= data_list[1]
+    #第3行為 category
+    category = data_list[2]
+    #第4行為 tags
+    tags = data_list[3]
+    # 有多項資料的 content 型別為數列
+    # 再將第7行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[6:])
+    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 &lt;!---more---&gt;
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
+    content = content.replace('~~~python', '[code lang="python"]')
+    content = content.replace('~~~', '[/code]')
+    return title, category, tags, content
+ 
+os.environ['TZ'] = 'Asia/Taipei'
+ 
+#################################
+filepath = "/your/wordpress/username/and/passwrod.txt"
+wordpress = "your.wordpress.site.domain"
+fo = open(filepath, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+ 
+wp_url = "https://"+wordpress+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+ 
+status_draft = 0
+status_published = 1
+ 
+server = xmlrpc.client.ServerProxy(wp_url)
+ 
+# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
+title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
+# title 是一個單獨的字串
+title = title_str.split(":")[1]
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+ 
+# 設法取得原 post 的 id
+origin_post = p.getLastChild()
+# 直接從標題取得 post 的 id 號碼
+post_id = origin_post.h
+status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
+ 
+if status:
+    g.es("資料已經更新!")
+else:
+    g.es("有問題, 資料沒有更新!")</t>
+<t tx="leo.20220312113435.4"># get-from-wp
+#coding: utf-8
+import xmlrpc.client
+# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
+import html
+ 
+#################################
+filepath = "/your/wordpress/username/and/passwrod.txt"
+wordpress = "your.wordpress.site.domain"
+fo = open(filepath, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+ 
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+wordpress+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+ 
+server = xmlrpc.client.ServerProxy(wp_url)
+ 
+# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
+ 
+# 從最後的 child 節點來取 post_id
+origin_post = p.getLastChild()
+post_id = origin_post.h
+# 取回與 post_id 對應的網誌文章內容
+blog_content = server.metaWeblog.getPost(post_id, wp_username, wp_password)
+title = blog_content["title"]
+# 這裡要利用 html.unescape 轉回特殊符號
+description = html.unescape(blog_content["description"])
+mt_text_more = html.unescape(blog_content["mt_text_more"])
+if mt_text_more != "":
+    post_content = description + "\n&lt;!--more--&gt;\n"+mt_text_more
+else:
+    post_content = description
+# 所取回的 categories 為 list
+categories = blog_content["categories"]
+# 所取回的 tags 為以逗點隔開的字串
+mt_keywords = blog_content["mt_keywords"]
+# 取回文章作者
+author = blog_content["wp_author_display_name"]
+p.h = title
+categories_str = ""
+for category in categories:
+    # 假如不是最後一個
+    if category != categories[len(categories)-1]:
+        categories_str += category + ", "
+    else:
+        # 這是最後一個
+        categories_str += category
+line1 = "@language md\n"
+line2 = "Title: " +title + "\n"
+line3 = "Category: " + categories_str + "\n"
+line4 = "Tags: " + mt_keywords + "\n"
+line5 = "Author: " + author + "\n@others\n"
+post_content = post_content.replace('&lt;!--more--&gt;', '\n&lt;!-- PELICAN_END_SUMMARY --&gt;\n')
+post_content = post_content.replace('[code lang="python"]', '~~~python')
+post_content = post_content.replace('[/code]', '~~~')
+p.b = line1 + line2 + line3 + line4 + line5 + post_content + "\n"
+# 因為節點資料更新, commander 必須 redraw
+c.redraw() 
+g.es("資料已經取回")</t>
+<t tx="leo.20220312113511.1">from markdown import markdown
+
+print(markdown("# Hello World"))
+# &lt;h1&gt;Hello World&lt;/h1&gt;</t>
+<t tx="leo.20220312113634.1">local-blog 必須 go to script 後再點按 button
+
+add-to-kblogger 或 edit-to-kblogger 
+則必須滑鼠停在 ＠clean 主 outline 上
+
+add-to 可以直接點按, 但 edit-to 則需要有 blog id 在 ＠clean 最後 outline 上</t>
+<t tx="leo.20220312113858.1">@language python
+from markdown import markdown
+from oauth2client import client
+#from googleapiclient import sample_tools
+import os
+# 配合使用 credential token
+import pickle
+from googleapiclient.discovery import build
+#from google_auth_oauthlib.flow import InstalledAppFlow
+#from google.auth.transport.requests import Request
+
+os.environ['TZ'] = 'Asia/Taipei'
+with open('./../../yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
+    credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
+
+def get_cat_tag_content(data):
+    # 請注意, 因為 data 來自 .md 的檔案 內容, 第1行為 ---
+    # 用跳行符號分割
+    data_list = data.split("\n")
+    #第 2 行為 title
+    title= data_list[1]
+    #第 4 行為 category
+    category = data_list[3]
+    #第 5 行為 tags
+    tags = data_list[4]
+    # 有多項資料的 content 型別為數列
+    # 再將第 9 行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[8:])
+    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Blogger 的 &lt;!--more--&gt;
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
+    #content = content.replace('~~~python', '[code lang="python"]')
+    #content = content.replace('~~~', '[/code]')
+    return title, category, tags, content
+
+# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
+# p.h 為 @clean filename.md
+# 因為要使用 @clean 節點掛上為後的 blogger post_id, 因此改為讀 .md 檔案
+md_filename = p.h.split(" ")[1]
+with open(md_filename, 'r', encoding="utf-8") as content_file:
+    md_content = content_file.read()
+# title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
+title_str, category_str, tags_str, content = get_cat_tag_content(md_content)
+category = category_str.split(":")[1]
+tags = tags_str.split(":")[1].split(",")
+tags.append(category)
+# title 是一個單獨的字串
+title = title_str.split(":")[1]
+# 將 markdown 格式 content 轉為 html
+content = markdown(content)
+# 以下處理 content 的 &lt;h2&gt; 標題
+content = content.replace("&lt;h2&gt;", "&lt;h2&gt;&lt;font size='4'&gt;")
+content = content.replace("&lt;/h2&gt;", "&lt;/font&gt;&lt;/h2&gt;")
+# g.es(content)
+
+try:
+    blogs = service.blogs()
+    # 取得使用者所建立網誌名稱
+    blogs = blogs.listByUser(userId='self').execute()
+    #blog_id = blogs["items"][0]["id"]
+    blog_id = "2403495118140401474"
+    # 設法取得原 post 的 id
+    postid_outline = p.getLastChild()
+    # 直接從標題取得 post 的 id 號碼
+    post_id = postid_outline.h
+    posts = service.posts()
+    # 更新網誌文章時的 body
+    body = {
+    "kind": "blogger#post",
+    "title": title,
+    "content": content
+    }
+    # need to save postId to outline head
+    update = posts.update(blogId=blog_id, postId=post_id, body=body, publish=True)
+    update_doc = update.execute()
+    # 使用 credential token 後, 無需刪除 blogger.dat
+    #os.remove("blogger.dat")
+    g.es("post_id 為", post_id)
+    g.es("已經將更新資料送往 K Blogger!")
+except(client.AccessTokenRefreshError):
+    g.es("error")
+</t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

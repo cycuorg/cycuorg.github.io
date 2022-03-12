@@ -1,25 +1,67 @@
 <h1>About</h1>
-<p>Repository:</p>
-<p style="padding-left: 30px;"><a href="https://github.com/cycuorg/cycuorg.github.io">https://github.com/cycuorg/cycuorg.github.io</a></p>
+<p>Repository: <a href="https://github.com/cycuorg/cycuorg.github.io">https://github.com/cycuorg/cycuorg.github.io</a></p>
 <p>Github Pages: <a href="https://cycu.org">https://cycu.org</a></p>
-<p>Contact: yen At cycu Dot org</p>
-<h2>KMOL</h2>
+<p>Contact: yen At cycu Dot org</p><h2>KMOL</h2>
 <p>Knowledge Management and Optimal utilization Laboratory (KMOL)</p>
 <p><img caption="false" height="58" src="/images/kmol_1172x340_bw_3yrs.png" width="200"/></p>
 <p><img alt="" height="200" src="/images/kmol_rotary_570x570.png" width="200"/></p>
 <p><img alt="" height="176" src="/images/3yrs_camel.jpg" width="200"/></p>
-<p><a href="/downloads/favicon.ico">favicon.ico</a></p><h2>MDE</h2>
+<p><a href="/downloads/favicon.ico">favicon.ico</a></p>
+<h2>MDE</h2>
 <p>My Digital Education (MDE)</p>
 <p><img alt="" height="227" src="/images/mde.png" width="200"/></p>
-<h2>Sites</h2>
-<p><a href="https://cycu.org">https://cycu.org</a></p>
 <h2>ToDo</h2>
 <p>利用 <a href="https://jitsi.org/">https://jitsi.org/</a> 與 <a href="https://obsproject.com/">https://obsproject.com/</a> 進行線上 meeting.</p>
 <p>從 <a href="https://coppeliarobotics.com/licensing">https://coppeliarobotics.com/licensing</a> 進展到使用 <a href="https://cyberbotics.com/doc/guide/webots-license-agreement">https://cyberbotics.com/doc/guide/webots-license-agreement</a></p>
 <h2>Google</h2>
 <p><a href="https://console.cloud.google.com/">https://console.cloud.google.com/</a> 用來設定 Oauth 2.0 相關使用授權.</p>
 <p>cycu dot org 將使用 yen at cycu 進行綁定.</p>
-<h2>Heroku</h2>
+<h3>Blogger</h3>
+<p><a href="https://cycuorg.blogspot.com/">https://cycuorg.blogspot.com/</a> </p>
+<p>利用 Blogger API 讓 Pelican Blog 與 Blogger 資料同步.</p>
+<p style="padding-left: 30px;"><a href="https://mde.tw/lab/blog/sync-pelican-and-blogger-content.html">https://mde.tw/lab/blog/sync-pelican-and-blogger-content.html</a> </p>
+<p style="padding-left: 30px;">從<a href="https://console.cloud.google.com">https://console.cloud.google.com</a> 取得 json 格式的 secret 檔案後, 利用下列程式登入管理者帳號授權後, 將 json 資料轉為 data 格式, 之後的 Desktop 程式就可利用 data 格式的授權, 透過 Blogger API 管理與 secret 對應授權的 Blogger 網誌.</p>
+<p>Python 可攜系統中與 Google API 相關模組與版本參考:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">pip install google-api-python-client oauth2client google_auth_oauthlib google-auth
+
+google-api-core               1.28.0
+google-api-python-client      2.6.0
+google-auth                   1.30.1
+google-auth-httplib2          0.1.0
+google-auth-oauthlib          0.4.4
+googleapis-common-protos      1.53.0
+oauth2client                  4.1.3
+oauthlib                      3.1.1</pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># get secrets: https://console.developers.google.com
+# https://developers.google.com/blogger/docs/3.0/using
+# pip install google_auth_oauthlib
+# under Mac command + b to execute
+import pickle
+import os
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+
+
+SCOPES = ['https://www.googleapis.com/auth/blogger', ]
+
+# we check if the file to store the credentials exists
+if not os.path.exists('yen_cycu_blogger_token.dat'):
+
+    flow = InstalledAppFlow.from_client_secrets_file('yen_cycu_blogger_secrets.json', SCOPES)
+    credentials = flow.run_local_server()
+
+    with open('yen_cycu_blogger_token.dat', 'wb') as credentials_dat:
+        pickle.dump(credentials, credentials_dat)
+else:
+    with open('yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
+        credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
+print(service)</pre>
+<h4>參考資料:</h4>
+<p style="padding-left: 30px;">Google API Python client: <a href="https://pypi.org/project/google-api-python-client/">https://pypi.org/project/google-api-python-client/</a></p>
+<p style="padding-left: 30px;">Google Authentication library: <a href="https://pypi.org/project/google-auth-oauthlib/">https://pypi.org/project/google-auth-oauthlib/</a></p>
+<p style="padding-left: 60px;"></p><h2>Heroku</h2>
 <p>以 yen At cycu 建立帳號</p>
 <h1>Python</h1>
 <p>至於 <a href="/downloads/PythonNotesForProfessionals.pdf">PythonNotesForProfessionals.pdf</a> 則是一份由電腦系統自動整理出來的 Python 相關資料.</p>

@@ -1,14 +1,14 @@
 Title: About
 
-## cmstemplate
+## cycu.org
 
-課程倉儲: <a href="https://github.com/mdecourse/cmstemplate">https://github.com/mdecourse/cmstemplate</a>
+倉儲: <a href="https://github.com/cycuorg/cycuorg.github.io">https://github.com/cycuorg/cycuorg.github.io</a>
 
-內容管理: <a href="https://mdecourse.github.io/cmstemplate/">https://mdecourse.github.io/cmstemplate/</a>
+網站: <a href="https://cycu.org/">https://cycu.org/</a>
 
-課程投影片: <a href="https://mdecourse.github.io/cmstemplate/reveal">https://mdecourse.github.io/cmstemplate/reveal</a>
+投影片: <a href="https://cycu.org/reveal">https://cycuorg/reveal</a>
 
-課程網誌: <a href="https://mdecourse.github.io/cmstemplate/blog">https://mdecourse.github.io/cmstemplate/blog</a>
+網誌: <a href="https://cycu.org/blog">https://cycu.org/blog</a>
 
 
 
