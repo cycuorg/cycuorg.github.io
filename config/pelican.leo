@@ -77,6 +77,9 @@
 <v t="leo.20180423103656.1"><vh>@clean 20220312.md</vh>
 <v t="leo.20220312092217.1"><vh>cycuorg blogger 與 Pelican 網誌</vh></v>
 </v>
+<v t="leo.20220621092009.1"><vh>@clean 20220621.md</vh>
+<v t="leo.20220621092416.1"><vh>期末考週與新網站架構</vh></v>
+</v>
 </v>
 </v>
 <v t="yen.20170108171733.83"><vh>產生 .key 與 .crt 指令</vh></v>
@@ -178,6 +181,7 @@ type: Desktop
 secrets 格式: json
 必須透過下列程式轉為 token, 才能為 google-api-python-client 模組使用
 
+&lt;pre class="brush:jscript"&gt;
 # get secrets: https://console.developers.google.com
 # https://developers.google.com/blogger/docs/3.0/using
 # pip install google_auth_oauthlib
@@ -231,7 +235,7 @@ blog_id = "7614197805383305517"
 #for blog in blogs['items']:
     #print(blog['name'], blog['url'])
 posts = service.posts()
-
+&lt;/pre&gt;
 
 
 </t>
@@ -749,6 +753,43 @@ try:
 except(client.AccessTokenRefreshError):
     g.es("error")
 </t>
+<t tx="leo.20220621092009.1">@language md
+---
+Title: 期末考週與新網站架構
+Date: 2022-06-21 11:11
+Category: cmsimde
+Tags: tinymce
+Slug: Final-week-and-new-cmsimde
+Author: cycuorg
+---
+
+Spring 學期的期末考週, 是暑假的開始, 去年用來編譯 Coppeliasim 4.1.0 與 4.2.0, 今年, 要修改 cmsimde 架構.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20220621092416.1">三天前, 一位學生確診, 傳來電子郵件, 說他很不舒服沒有辦法上課, 希望不要扣他的分數.
+
+回信告訴他說: 知道了, 好好休息保重!
+
+期末考週
+----
+
+這封信開啟了 2022 年 Spring 學期的期末考週.
+
+不只一次, 在課堂上說: 現代的人才幾乎都不是教出來的, 而是透過自我的認知與學習, 不斷持續改進克服困難後, 而歷練出來的.
+
+四十年前, 早就悟出這個關鍵點, 幾乎全部的老師, 沒有看習題解答, 其實, 原文書每一章節後的習題, 連一題也做不出來, 能夠跟著課本寫的唸, 就已經是名師了......
+
+四十年後, 即便老師跟學生做遍每一個習題, 碰到瞬息萬變的環境, 還是得一步一腳印, 大多數人只能跟著走, 被破壞殆盡的地球上, 早就已經沒有了標準答案......
+
+重生
+----
+
+Reborn 應該是 2022 年暑假最佳寫照, 台灣人在選舉年需要的重生, 是需要重新學習該如何生活, 如何選擇.
+而 cmsimde 也到了需要重新檢視下一階段的需求.
+
+準備開始大改 cmsimde 了.</t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
