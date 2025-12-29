@@ -69,6 +69,7 @@
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushWbt.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
@@ -110,14 +111,14 @@ img.add_border {
             <header class="site-navbar py-4 bg-white" role="banner">
               <div class="container">
                 <div class="row align-items-center">
-                <h1>Chiaming Yen's Cyber Universe</h1>
+                <h1>Chia-Yi Cyber Universe - 嘉義賽博宇宙</h1>
                 <div class="pl-4">
                     <form>
                     <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
                     </form>
                 </div>
                   <!-- <div class="col-11 col-xl-2">
-                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">Chiaming Yen's Cyber Universe</a></h1> 
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">Chia-Yi Cyber Universe - 嘉義賽博宇宙</a></h1> 
                   </div>
                   -->
                   <div class="col-12 col-md-10 d-none d-xl-block">
@@ -130,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='KMOL.html'>KMOL</a><li><a href='MDE.html'>MDE</a><li><a href='ToDo.html'>ToDo</a><li class='has-children'><a href='Google.html'>Google</a><ul class='dropdown'><li><a href='Blogger.html'>Blogger</a><li><a href='Youtube.html'>Youtube</a></li></li></ul></ul><li><a href='Python.html'>Python</a><li class='has-children'><a href='Portable.html'>Portable</a><ul class='dropdown'><li><a href='Lua 解譯.html'>Lua 解譯</a><li class='has-children'><a href='Wink.html'>Wink</a><ul class='dropdown'><li><a href='Add Wink.html'>Add Wink</a></li></li></ul></ul><li class='has-children'><a href='CMSiMDE.html'>CMSiMDE</a><ul class='dropdown'><li><a href='建立網頁.html'>建立網頁</a><li class='has-children'><a href='基本操作.html'>基本操作</a><ul class='dropdown'><li><a href='客製化.html'>客製化</a><li><a href='編輯網頁內容.html'>編輯網頁內容</a><li><a href='上傳與引用檔案.html'>上傳與引用檔案</a><li><a href='上傳與引用圖片.html'>上傳與引用圖片</a><li><a href='嵌入程式碼.html'>嵌入程式碼</a><li><a href='嵌入影片檔.html'>嵌入影片檔</a><li><a href='檢視 STL.html'>檢視 STL</a></li></ul><li><a href='置入 disqus.html'>置入 disqus</a><li><a href='Gitlab 同步.html'>Gitlab 同步</a><li><a href='Heroku 部署.html'>Heroku 部署</a><li><a href='Fossil SCM.html'>Fossil SCM</a><li class='has-children'><a href='注意事項.html'>注意事項</a><ul class='dropdown'><li><a href='標題選擇.html'>標題選擇</a><li><a href='靜態網頁 404.html'>靜態網頁 404</a><li><a href='動態網站錯誤.html'>動態網站錯誤</a></li></ul><li><a href='延伸開發.html'>延伸開發</a><li class='has-children'><a href='已知問題.html'>已知問題</a><ul class='dropdown'><li><a href='IPv6.html'>IPv6</a><li><a href='上傳資料引用.html'>上傳資料引用</a><li><a href='MathJax.html'>MathJax</a><li><a href='html 分頁.html'>html 分頁</a><li><a href='靜態搜尋.html'>靜態搜尋</a><li><a href='template.html'>template</a><li><a href='重複標題頁面.html'>重複標題頁面</a></li></ul><li><a href='ajax.html'>ajax</a><li><a href='black.html'>black</a><li><a href='summernote.html'>summernote</a></li>
+                     <li><a href='有關本站.html'>有關本站</a><li><a href='數位科技.html'>數位科技</a><li><a href='在地文化.html'>在地文化</a><li><a href='城市觀察.html'>城市觀察</a><li><a href='未來想像.html'>未來想像</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,17 +142,8 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Add Wink << <a href='Add Wink.html'>Previous</a> <a href='建立網頁.html'>Next</a> >> 建立網頁<br /><h1>CMSiMDE</h1>
-<p>注意: 由於 CMSiMDE 近端啟動時之 ssl_context 改用 adhoc, 因此 Python 必須額外安裝 pyopenssl:</p>
-<p style="padding-left: 30px;">pip install pyopenssl</p>
-<p style="padding-left: 30px;">若是在 Linux 則使用 sudo pip3 install pyopenssl</p>
-<p style="padding-left: 30px;">若是在 Mac 則使用 pip3 install pyopenssl</p>
-<p>CMSiMDE (<a href="https://github.com/cycuorg/cmsimde">https://github.com/cycuorg/cmsimde</a>) 是一套以 Python 與 Flask 框架編寫的網際內容管理系統,</p>
-<p>使用 CMSiMDE 建議使用者安裝 flask flask_cors bs4 lxml pelican markdown leo pyopenssl 等模組.</p>
-<p>亦即在 Windows 環境中, 以命令列執行:</p>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">pip install flask flask_cors bs4 lxml pelican markdown leo pyopenssl</pre>
-<p>其中的 flask flask_cors bs4 lxml pelican markdown為啟動 CMSiMDE 的必要模組, 而 leo 則是 CMSMDE 開發者所使用的大綱管理工具, 可以用於與 CMSiMDE 整合的 Pelican blog 及 Reveal.js 網際簡報編輯之用.</p>
-<br />Add Wink << <a href='Add Wink.html'>Previous</a> <a href='建立網頁.html'>Next</a> >> 建立網頁</div>
+    <div id="tipue_search_content">數位科技 << <a href='數位科技.html'>Previous</a> <a href='城市觀察.html'>Next</a> >> 城市觀察<br /><h1>在地文化</h1>
+<br />數位科技 << <a href='數位科技.html'>Previous</a> <a href='城市觀察.html'>Next</a> >> 城市觀察</div>
         
     <!-- footer -->
       <div class="container">

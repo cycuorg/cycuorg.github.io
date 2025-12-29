@@ -57,6 +57,9 @@ import string
 
 # for start_static to get wan address
 import socket
+# for start_static to use https
+import ssl
+from pathlib import Path
 
 # 由 init.py 中的 uwsgi = False 或 True 決定在 uwsgi 模式或近端模式執行
 
@@ -1078,6 +1081,8 @@ def get_page2(heading, head, edit, get_page_content = None):
 
     page = [w.replace('src="/images/', 'src="./../images/') for w in page]
     page = [w.replace('href="/downloads/', 'href="./../downloads/') for w in page]
+    # 配合 object 標註導入 svg data 來源的轉換
+    page = [w.replace('data="/images/', 'data="./../images/') for w in page]
     # 假如有 src="/static/ace/ 則換為 src="./../static/ace/
     page = [w.replace('src="/static/', 'src="./../cmsimde/static/') for w in page]
     # 假如有 src=/downloads 則換為 src=./../../downloads
@@ -2509,8 +2514,21 @@ def set_admin_css():
     """Set css for admin
     """
 
-    server_ip = get_wan_address() or 'localhost'
-    if "." in server_ip:
+    server_ip = init.Init.ip
+    # need to check for IPv4 or IPv6
+    # 根據 IP 地址自動選擇 address family
+    try:
+        # 嘗試解析 IP 地址以確定是 IPv4 還是 IPv6
+        socket.inet_pton(socket.AF_INET, server_ip)
+        address_family = socket.AF_INET
+    except socket.error:
+        try:
+            socket.inet_pton(socket.AF_INET6, server_ip)
+            address_family = socket.AF_INET6
+        except socket.error:
+            # 如果都不是有效的 IP，假設是 hostname 或 localhost
+            address_family = socket.AF_INET6 if ':' in server_address else socket.AF_INET
+    if address_family == socket.AF_INET:
         server_address = str(server_ip) + ":" + str(static_port)
     else:
         server_address = "[" + str(server_ip) + "]:" + str(static_port)
@@ -2562,7 +2580,7 @@ window.location= 'https://' + location.host + location.pathname + location.searc
         outstring += '''
 <li><a href="/acpform">acp</a></li>
 <li><a href="/start_static/">SStatic</a></li>
-<li><a href="http://'''+ server_address + '''">''' + str(static_port) + '''</a></li>
+<li><a href="https://'''+ server_address + '''">''' + str(static_port) + '''</a></li>
 '''
     outstring += '''
 </ul>
@@ -2575,9 +2593,22 @@ def set_css():
 
     """Set css for dynamic site
     """
-
-    server_ip = get_wan_address() or 'localhost'
-    if "." in server_ip:
+    
+    server_ip = init.Init.ip
+    # need to check for IPv4 or IPv6
+    # 根據 IP 地址自動選擇 address family
+    try:
+        # 嘗試解析 IP 地址以確定是 IPv4 還是 IPv6
+        socket.inet_pton(socket.AF_INET, server_ip)
+        address_family = socket.AF_INET
+    except socket.error:
+        try:
+            socket.inet_pton(socket.AF_INET6, server_ip)
+            address_family = socket.AF_INET6
+        except socket.error:
+            # 如果都不是有效的 IP，假設是 hostname 或 localhost
+            address_family = socket.AF_INET6 if ':' in server_address else socket.AF_INET
+    if address_family == socket.AF_INET:
         server_address = str(server_ip) + ":" + str(static_port)
     else:
         server_address = "[" + str(server_ip) + "]:" + str(static_port)
@@ -2638,7 +2669,7 @@ window.location= 'https://' + location.host + location.pathname + location.searc
             outstring += '''
 <li><a href="/acpform">acp</a></li>
 <li><a href="/start_static/">SStatic</a></li>
-<li><a href="http://''' + server_address +'''">''' + str(static_port) + '''</a></li>
+<li><a href="https://''' + server_address +'''">''' + str(static_port) + '''</a></li>
 '''
     else:
         outstring += '''
@@ -2869,31 +2900,74 @@ def ssavePage():
 
 @app.route('/start_static/')
 def start_static():
-    """Start local static server in http"""
+    """Start local static server in https with IPv4/IPv6 support"""
     
     if isAdmin():
-        server_address = get_wan_address() or 'localhost'
-        server_port = static_port
-
-        # Determine address family based on server_address
-        address_family = socket.AF_INET if ':' not in server_address else socket.AF_INET6
-
-        httpd = http.server.HTTPServer((server_address, server_port), http.server.SimpleHTTPRequestHandler, bind_and_activate=False)
-        httpd.socket = socket.socket(address_family, socket.SOCK_STREAM)
-        httpd.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-
-        if address_family == socket.AF_INET6:
-            httpd.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)
-            httpd.socket.bind((server_address, server_port, 0, 0))
-        else:
+        try:
+            # 使用 init.py 中所設定的 IP address
+            server_address = init.Init.ip
+            server_port = static_port
+            
+            # 根據 IP 地址自動選擇 address family
+            try:
+                # 嘗試解析 IP 地址以確定是 IPv4 還是 IPv6
+                socket.inet_pton(socket.AF_INET, server_address)
+                address_family = socket.AF_INET
+            except socket.error:
+                try:
+                    socket.inet_pton(socket.AF_INET6, server_address)
+                    address_family = socket.AF_INET6
+                except socket.error:
+                    # 如果都不是有效的 IP，假設是 hostname 或 localhost
+                    address_family = socket.AF_INET6 if ':' in server_address else socket.AF_INET
+            
+            # 創建 SSL context
+            ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+            ssl_context.load_cert_chain(
+                certfile='cert.pem',
+                keyfile='key.pem'
+            )
+            
+            # 設定 HTTPS server
+            httpd = http.server.HTTPServer(
+                (server_address, server_port),
+                http.server.SimpleHTTPRequestHandler,
+                bind_and_activate=False
+            )
+            
+            # 創建 socket 並套用 SSL
+            httpd.socket = socket.socket(address_family, socket.SOCK_STREAM)
+            httpd.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            
+            # 為 IPv6 添加雙棧支援（如果系統支援）
+            if address_family == socket.AF_INET6:
+                try:
+                    httpd.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)
+                except (AttributeError, socket.error):
+                    pass  # 如果系統不支援雙棧，就使用純 IPv6
+            
+            httpd.socket = ssl_context.wrap_socket(
+                httpd.socket,
+                server_side=True
+            )
+            
+            # 綁定並啟動 server
             httpd.socket.bind((server_address, server_port))
-
-        httpd.server_activate()
-        httpd.serve_forever()
+            httpd.server_activate()
+            
+            # 根據 address family 顯示適當的協議資訊
+            protocol = "IPv6" if address_family == socket.AF_INET6 else "IPv4"
+            print(f"HTTPS Server started at https://{server_address}:{server_port} using {protocol}")
+            httpd.serve_forever()
+            
+        except ssl.SSLError as e:
+            print(f"SSL Error: {e}")
+            return "SSL configuration error", 500
+        except Exception as e:
+            print(f"Server Error: {e}")
+            return "Server error", 500
     else:
         return redirect("/login")
-
-
 def syntaxhighlight():
 
     """Return syntaxhighlight needed scripts
@@ -2913,6 +2987,7 @@ def syntaxhighlight():
 <script type="text/javascript" src="/static/syntaxhighlighter/shBrushPowerShell.js"></script>
 <script type="text/javascript" src="/static/syntaxhighlighter/shBrushLua.js"></script>
 <script type="text/javascript" src="/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="/static/syntaxhighlighter/shBrushWbt.js"></script>
 <script type="text/javascript" src="/static/syntaxhighlighter/shBrushCpp.js"></script>
 <script type="text/javascript" src="/static/syntaxhighlighter/shBrushCss.js"></script>
 <script type="text/javascript" src="/static/syntaxhighlighter/shBrushCSharp.js"></script>
@@ -2957,6 +3032,7 @@ def syntaxhighlight2():
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushWbt.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
