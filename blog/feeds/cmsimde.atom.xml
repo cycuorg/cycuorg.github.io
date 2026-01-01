@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cycu.org - cmsimde</title><link href="./" rel="alternate"></link><link href="./feeds/cmsimde.atom.xml" rel="self"></link><id>./</id><updated>2022-06-21T11:11:00+08:00</updated><entry><title>期末考週與新網站架構</title><link href="./Final-week-and-new-cmsimde.html" rel="alternate"></link><published>2022-06-21T11:11:00+08:00</published><updated>2022-06-21T09:38:19+08:00</updated><author><name>cycuorg</name></author><id>tag:None,2022-06-21:./Final-week-and-new-cmsimde.html</id><summary type="html">&lt;p&gt;Spring 學期的期末考週, 是暑假的開始, 去年用來編譯 Coppeliasim 4.1.0 與 4.2.0, 今年, 要修改 cmsimde 架構.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CYCU.ORG - cmsimde</title><link href="https://cycu.org/blog/" rel="alternate"/><link href="https://cycu.org/blog/feeds/cmsimde.atom.xml" rel="self"/><id>https://cycu.org/blog/</id><updated>2026-01-01T23:41:20.896005+08:00</updated><entry><title>期末考週與新網站架構</title><link href="https://cycu.org/blog/Final-week-and-new-cmsimde.html" rel="alternate"/><published>2026-01-01T11:11:00+08:00</published><updated>2026-01-01T23:41:20.896005+08:00</updated><author><name>cycuorg</name></author><id>tag:cycu.org,2026-01-01:/blog/Final-week-and-new-cmsimde.html</id><summary type="html">&lt;p&gt;Spring 學期的期末考週, 是暑假的開始, 去年用來編譯 Coppeliasim 4.1.0 與 4.2.0, 今年, 要修改 cmsimde 架構.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Spring 學期的期末考週, 是暑假的開始, 去年用來編譯 Coppeliasim 4.1.0 與 4.2.0, 今年, 要修改 cmsimde 架構.&lt;/p&gt;
 
 
@@ -13,4 +13,4 @@
 &lt;h2&gt;重生&lt;/h2&gt;
 &lt;p&gt;Reborn 應該是 2022 年暑假最佳寫照, 台灣人在選舉年需要的重生, 是需要重新學習該如何生活, 如何選擇.
 而 cmsimde 也到了需要重新檢視下一階段的需求.&lt;/p&gt;
-&lt;p&gt;準備開始大改 cmsimde 了.&lt;/p&gt;</content><category term="cmsimde"></category><category term="tinymce"></category></entry></feed>
+&lt;p&gt;準備開始大改 cmsimde 了.&lt;/p&gt;</content><category term="cmsimde"/><category term="tinymce"/></entry></feed>
