@@ -4,92 +4,85 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://cycu.org/blog/</loc>
-<lastmod>2026-01-01T23:42:57-00:00</lastmod>
+<loc>./</loc>
+<lastmod>2026-01-02T11:18:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/archives.html</loc>
-<lastmod>2026-01-01T23:42:57-00:00</lastmod>
+<loc>./archives.html</loc>
+<lastmod>2026-01-02T11:18:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tags.html</loc>
-<lastmod>2026-01-01T23:42:57-00:00</lastmod>
+<loc>./tags.html</loc>
+<lastmod>2026-01-02T11:18:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/categories.html</loc>
-<lastmod>2026-01-01T23:42:57-00:00</lastmod>
+<loc>./categories.html</loc>
+<lastmod>2026-01-02T11:18:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/pages/about/</loc>
+<loc>./pages/about/</loc>
 <lastmod>2025-12-29T20:47:55+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/2026-cycuorg-blogger-and--pelican-blog.html</loc>
-<lastmod>2026-01-01T23:38:36+08:00</lastmod>
+<loc>./2026-cycuorg-blog-started.html</loc>
+<lastmod>2026-01-02T11:18:01+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/Final-week-and-new-cmsimde.html</loc>
-<lastmod>2026-01-01T23:41:20+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://cycu.org/blog/category/cmsimde.html</loc>
-<lastmod>2026-01-01T23:41:20+08:06</lastmod>
+<loc>./category/tech.html</loc>
+<lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/category/pelican.html</loc>
-<lastmod>2026-01-01T23:38:36+08:06</lastmod>
+<loc>./tag/cycuorg.html</loc>
+<lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tag/cycu-org.html</loc>
-<lastmod>2026-01-01T23:38:36+08:06</lastmod>
+<loc>./tag/programming.html</loc>
+<lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tag/tinymce.html</loc>
-<lastmod>2026-01-01T23:41:20+08:06</lastmod>
+<loc>./tag/mcad.html</loc>
+<lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/author/cycuorg.html</loc>
-<lastmod>2026-01-01T23:41:20+08:06</lastmod>
+<loc>./tag/simulation.html</loc>
+<lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/author/yen.html</loc>
-<lastmod>2026-01-01T23:38:36+08:06</lastmod>
+<loc>./author/cycu.html</loc>
+<lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -75,10 +75,7 @@
 <v t="leo.20170710022041.1"><vh>@path markdown</vh>
 <v t="leo.20180115115910.1"><vh>2026</vh>
 <v t="leo.20180423103656.1"><vh>@clean 20260101.md</vh>
-<v t="leo.20220312092217.1"><vh>cycuorg blogger 與 Pelican 網誌</vh></v>
-</v>
-<v t="leo.20220621092009.1"><vh>@clean 20260101-1.md</vh>
-<v t="leo.20220621092416.1"><vh>期末考週與新網站架構</vh></v>
+<v t="leo.20220312092217.1"><vh>cycu.org blog 啟動</vh></v>
 </v>
 </v>
 </v>
@@ -109,17 +106,17 @@ g.es("admin pelican Github 執行完畢")
 <t tx="leo.20180115093448.1"></t>
 <t tx="leo.20180115093726.1"></t>
 <t tx="leo.20180115115910.1"></t>
-<t tx="leo.20180423103656.1" _mod_time="4741da55a53f019f6b2e">@language md
+<t tx="leo.20180423103656.1" _mod_time="4741da55ce3a651eda2e">@language md
 ---
-Title: cycuorg blogger 與 Pelican 網誌
+Title: cycu.org blog 啟動
 Date: 2026-01-01 11:11
-Category: Pelican
-Tags: cycu-org
-Slug: 2026-cycuorg-blogger-and--pelican-blog
-Author: yen
+Category: Tech
+Tags: cycuorg, programming, mcad, simulation
+Slug: 2026-cycuorg-blog-started
+Author: cycu
 ---
 
-以下的這些瑣碎紀錄源自 2004 年公開推出的 Gmail 與 2006 年推出的 Google Apps for Your Domain (也就是之後的 G Suite 以及現在的 [Google Workspace]).
+2026 年首日，啟動 cycu.org 網誌，Tech 類別只談技術，其他沒有。
 
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 
@@ -159,83 +156,35 @@ blogs = blogs.listByUser(userId='self').execute()
 # post_id is now blogs["items"][0]["id"]
 blog_id = blogs["items"][0]["id"]
 print("blog id:", blog_id)</t>
-<t tx="leo.20220312092217.1">因為 cycu.org 就是在當時申請帳號時建立的. 從 [Wayback Machine] 還能發現, 最早的紀錄是 [2003 年 12 月], 採用 Xoops 在 Apache 1.3.28 版的 WWW 伺服器所建立的網站. 使用的電子郵件系統就是 Gmail.
-
-現在的 [cycuorg blogger] 是採用 yen 在 cycu dot org 網域中的帳號所建立, 主要內容來自 [CYCU]. [Google Workspace] 只負責 Gmail 帳號的設置. Blogger 與 [Pelican Blog] 彼此保持內容同步. Youtube 影片則透過 yencycuorg 在 Gmail 的 [channel] 上傳. 而 [CYCU] 使用 Github Pages 建立, 綁定的帳號為 cycuorg. 
-
-[cycuorg blogger]: https://cycuorg.blogspot.com
-[CYCU]: https://cycu.org
-[channel]: https://www.youtube.com/channel/UCOJQSG4KAaKMKK82dEFnLsw
-[Pelican Blog]: https://blog.getpelican.com/
-[Google Workspace]: https://workspace.google.com/
-[Wayback Machine]: https://web.archive.org
-[2003 年 12 月]: https://web.archive.org/web/20031220081545/http://www.cycu.org/
-
-Blogger Python API
+<t tx="leo.20220312092217.1">遙想 2003
 ----
 
-Goggle cloud apis 網站位於 &lt;https://console.cloud.google.com/apis/&gt;, 若要透過 Python 程式建立 Blogger 網誌, 
+cycu.org 是在 2003 年申請的，那個 Gmail 帳號還需要透過推薦才能取得的年代。
 
-Credential 選擇 OAuth 2.0 Client IDs 
-type: Desktop
-secrets 格式: json
-必須透過下列程式轉為 token, 才能為 google-api-python-client 模組使用
+二十幾年過去，當現今 [VSCode] 鋪天蓋地，這個網誌仍然使用當時啟用的 [Leo Editor]。
 
-&lt;pre class="brush:jscript"&gt;
-# get secrets: https://console.developers.google.com
-# https://developers.google.com/blogger/docs/3.0/using
-# pip install google_auth_oauthlib
-# under Mac command + b to execute
-import pickle
-import os
-from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
+觸及的技術
+----
+
+程式語言部分只會觸及: Python、Javascript、[Brython] 以及 C。前面三個以 Web-based  [Brython] 與 [Pyodide] 為主，而 C 則將涵蓋 [SQLite] 與 [Fossil SCM]。
+
+MCAD 部分則包括 [Siemens NX] 以及 [Solvespace]。
+
+機電模擬套件將只看 [Webots]。
+
+其他: 還不知道
+
+[Brython]: https://brython.info/
+[Pyodide]: https://pyodide.org/
+[SQLite]: https://sqlite.org/
+[Fossil SCM]: https://fossil-scm.org/
+[Siemens NX]: https://plm.sw.siemens.com/en-US/nx/
+[Solvespace]: https://solvespace.com/
+[Webots]: https://cyberbotics.com/
+[VSCode]: https://code.visualstudio.com/
+[Leo Editor]: https://leo-editor.github.io/leo-editor/
 
 
-SCOPES = ['https://www.googleapis.com/auth/blogger', ]
-
-# we check if the file tBo store the credentials exists
-if not os.path.exists('./../../yen_cycu_blogger_token.dat'):
-
-    flow = InstalledAppFlow.from_client_secrets_file('./../../yen_cycu_blogger_secrets.json', SCOPES)
-    credentials = flow.run_local_server()
-
-    with open('yen_cycu_blogger_token.dat', 'wb') as credentials_dat:
-        pickle.dump(credentials, credentials_dat)
-else:
-    with open('yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
-        credentials = pickle.load(credentials_dat)
-service = build('blogger', 'v3', credentials=credentials)
-g.es(service)
-
-已經將 .json 轉為 token.dat 後, 可以 pickle.load() 取出 credentials, 然後利用 service = build('blogger', 'v3', credentials=credentials) 得到
-blogger service 物件.
-
-from markdown import markdown
-from oauth2client import client
-# pip install oauth2client
-import os
-# 配合使用 credential token
-import pickle
-from googleapiclient.discovery import build
-# pip install google-api-python-client
-
-os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_cycu_blogger_token.dat', 'rb') as credentials_dat:
-    credentials = pickle.load(credentials_dat)
-service = build('blogger', 'v3', credentials=credentials)
-blogs = service.blogs()
-# 取得使用者所建立網誌名稱
-blogs = blogs.listByUser(userId='self').execute()
-# post_id is now blogs["items"][0]["id"]
-#blog_id = blogs["items"][0]["id"]
-# cycuorg.blogspot.com 的 blog_id
-blog_id = "7614197805383305517"
-#for blog in blogs['items']:
-    #print(blog['name'], blog['url'])
-posts = service.posts()
-&lt;/pre&gt;
 
 
 </t>
@@ -753,43 +702,6 @@ try:
 except(client.AccessTokenRefreshError):
     g.es("error")
 </t>
-<t tx="leo.20220621092009.1" _mod_time="4741da55a5683958272e">@language md
----
-Title: 期末考週與新網站架構
-Date: 2026-01-01 11:11
-Category: cmsimde
-Tags: tinymce
-Slug: Final-week-and-new-cmsimde
-Author: cycuorg
----
-
-Spring 學期的期末考週, 是暑假的開始, 去年用來編譯 Coppeliasim 4.1.0 與 4.2.0, 今年, 要修改 cmsimde 架構.
-
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-@others</t>
-<t tx="leo.20220621092416.1">三天前, 一位學生確診, 傳來電子郵件, 說他很不舒服沒有辦法上課, 希望不要扣他的分數.
-
-回信告訴他說: 知道了, 好好休息保重!
-
-期末考週
-----
-
-這封信開啟了 2022 年 Spring 學期的期末考週.
-
-不只一次, 在課堂上說: 現代的人才幾乎都不是教出來的, 而是透過自我的認知與學習, 不斷持續改進克服困難後, 而歷練出來的.
-
-四十年前, 早就悟出這個關鍵點, 幾乎全部的老師, 沒有看習題解答, 其實, 原文書每一章節後的習題, 連一題也做不出來, 能夠跟著課本寫的唸, 就已經是名師了......
-
-四十年後, 即便老師跟學生做遍每一個習題, 碰到瞬息萬變的環境, 還是得一步一腳印, 大多數人只能跟著走, 被破壞殆盡的地球上, 早就已經沒有了標準答案......
-
-重生
-----
-
-Reborn 應該是 2022 年暑假最佳寫照, 台灣人在選舉年需要的重生, 是需要重新學習該如何生活, 如何選擇.
-而 cmsimde 也到了需要重新檢視下一階段的需求.
-
-準備開始大改 cmsimde 了.</t>
 <t tx="leo.20260101233433.1"></t>
 <t tx="leo.20260101233433.2">QSplitter::handle {
     background-color: #CAE1FF; /* lightSteelBlue1 */

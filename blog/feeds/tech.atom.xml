@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CYCU.ORG</title><link href="./" rel="alternate"/><link href="./feeds/all.atom.xml" rel="self"/><id>./</id><updated>2026-01-02T11:18:01.580008+08:00</updated><entry><title>cycu.org blog 啟動</title><link href="./2026-cycuorg-blog-started.html" rel="alternate"/><published>2026-01-01T11:11:00+08:00</published><updated>2026-01-02T11:18:01.580008+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-01:./2026-cycuorg-blog-started.html</id><summary type="html">&lt;p&gt;2026 年首日，啟動 cycu.org 網誌，Tech 類別只談技術，其他沒有。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CYCU.ORG - Tech</title><link href="./" rel="alternate"/><link href="./feeds/tech.atom.xml" rel="self"/><id>./</id><updated>2026-01-02T11:18:01.580008+08:00</updated><entry><title>cycu.org blog 啟動</title><link href="./2026-cycuorg-blog-started.html" rel="alternate"/><published>2026-01-01T11:11:00+08:00</published><updated>2026-01-02T11:18:01.580008+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-01:./2026-cycuorg-blog-started.html</id><summary type="html">&lt;p&gt;2026 年首日，啟動 cycu.org 網誌，Tech 類別只談技術，其他沒有。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2026 年首日，啟動 cycu.org 網誌，Tech 類別只談技術，其他沒有。&lt;/p&gt;
 
 
