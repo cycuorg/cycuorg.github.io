@@ -77,6 +77,9 @@
 <v t="leo.20180423103656.1"><vh>@clean 20260101.md</vh>
 <v t="leo.20220312092217.1"><vh>cycu.org blog 啟動</vh></v>
 </v>
+<v t="leo.20260102111959.1"><vh>@clean 20260102.md</vh>
+<v t="leo.20260102112218.1"><vh>Bind9</vh></v>
+</v>
 </v>
 </v>
 <v t="yen.20170108171733.83"><vh>產生 .key 與 .crt 指令</vh></v>
@@ -796,6 +799,44 @@ QLineEdit#editorLabel {
 }</t>
 <t tx="leo.20260101233433.3">@string qt-layout-name = vertical-thirds
 @string qt-layout-name = horizontal-thirds</t>
+<t tx="leo.20260102111959.1" _mod_time="4741da55cf76c7e0f32e">@language md
+---
+Title: Bind9
+Date: 2026-01-02 11:11
+Category: Tech
+Tags: bind9
+Slug: bind9-setup
+Author: cycu
+---
+
+假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20260102112218.1">DNS 伺服器
+----
+
+[Bind 9] 是一套 DNS 伺服器程式，假設我們好不容易取得以下三個 domain name 的註冊與管理權: mde.nowhere、eng.nowhere 以及 rocket.nowhere，該如何進行管理?
+
+假設這三個網域的管理 IPv4 分別為 17.3、17.6 與 17.8，而 IPv6 則對應為: 17::3、17::6 以及 17::8，接下決定要使用 Ubuntu server 進行管理，而且每個網域僅啟動一台 DNS server (照理說應該要至少有兩台)。
+
+以下就是假想的管理作為:
+
+在一台伺服器上直接安裝 [Proxmox VE]，然後先設置一台 VM (虛擬主機)，然後其他兩台則僅改變 netplan 中的 .yaml 網路設定檔案，/etc/bind/ 中的對應網域設定檔案，/etc/hosts 以及 /etc/hostname 等。
+
+設定完成之後，一旦各網域主機內容有所更動，可以採用 sudo systemctl restart bind9 重新啟動 bind9 服務。
+
+[Proxmox VE] 安裝
+----
+
+[Proxmox VE] 是 [Debian] 分支，操作系統所使用的指令與 [Ubuntu] 相同。詳細的 [Proxmox VE] 安裝步驟，可以參見[pve-installation.html]。
+
+[Bind 9]: https://www.isc.org/bind/
+[Proxmox VE]: https://www.proxmox.com/en/products/proxmox-virtual-environment/overview
+[Debian]: https://www.debian.org/
+[Ubuntu]: https://ubuntu.com/download/server
+[pve-installation.html]: https://pve.proxmox.com/pve-docs/chapter-pve-installation.html</t>
 <t tx="yen.20170108171733.1"></t>
 <t tx="yen.20170108171733.2">@language python
 import os
