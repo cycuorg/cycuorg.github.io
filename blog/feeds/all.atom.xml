@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CYCU.ORG</title><link href="./" rel="alternate"/><link href="./feeds/all.atom.xml" rel="self"/><id>./</id><updated>2026-01-03T11:18:12.837497+08:00</updated><entry><title>Siemens NX</title><link href="./Siemens-NX.html" rel="alternate"/><published>2026-01-03T11:11:00+08:00</published><updated>2026-01-03T11:18:12.837497+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-03:./Siemens-NX.html</id><summary type="html">&lt;p&gt;Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CYCU.ORG</title><link href="./" rel="alternate"/><link href="./feeds/all.atom.xml" rel="self"/><id>./</id><updated>2026-01-03T20:32:34.973667+08:00</updated><entry><title>Siemens NX</title><link href="./Siemens-NX.html" rel="alternate"/><published>2026-01-03T11:11:00+08:00</published><updated>2026-01-03T20:32:34.973667+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-03:./Siemens-NX.html</id><summary type="html">&lt;p&gt;Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。&lt;/p&gt;
 
 
-&lt;h1&gt;設計 Design&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="https://docs.sw.siemens.com/documentation/external/PL20250429951538534/en-US/static/design_day_one/index.html"&gt;設計 Design&lt;/a&gt;&lt;/h1&gt;
 &lt;h2&gt;核心建模 Core Modeling&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;solid_modeling&lt;/li&gt;
@@ -43,7 +43,7 @@
 &lt;li&gt;geometric_tol / pmi_effectivity&lt;/li&gt;
 &lt;li&gt;3d_to_2d_flattener / 3dxml_to_nx / acis_nx_translator&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1&gt;分析 Analysis / Simulation&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="https://docs.sw.siemens.com/documentation/external/PL20250429951538534/en-US/static/simulation_day_one/index.html"&gt;分析 Analysis / Simulation&lt;/a&gt;&lt;/h1&gt;
 &lt;h2&gt;結構與力學 Structural &amp;amp; Mechanical&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;nx_mcd_core / nx_mcd_essential&lt;/li&gt;
@@ -60,7 +60,7 @@
 &lt;li&gt;nx_thermal_solver / nx_thermal_ui / nx_thermal_adv_solv / nx_thermal_adv_ui&lt;/li&gt;
 &lt;li&gt;nx_space_therm_solv / nx_space_therm_ui&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;多體動力學 MBD &amp;amp; Mechanisms&lt;/h2&gt;
+&lt;h2&gt;&lt;a href="https://www.youtube.com/playlist?list=PLKWX3xUP3pPrkwQxl-DwPpMJXprrm5esv"&gt;多體動力學 MBD &amp;amp; Mechanisms&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;nx_mbd / wave / mechanisms&lt;/li&gt;
 &lt;li&gt;motion_cd_tire / motion_ext_control / motion_flex_modal&lt;/li&gt;
@@ -74,7 +74,7 @@
 &lt;li&gt;nx_plastics_base / nx_easyfill_analysis / nx_easyfill_advanced&lt;/li&gt;
 &lt;li&gt;nx_sustainability&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1&gt;製造 Manufacturing / CAM / Tooling&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="https://docs.sw.siemens.com/documentation/external/PL20250429951538534/en-US/static/cam_day_one/index.html"&gt;製造 Manufacturing / CAM / Tooling&lt;/a&gt;&lt;/h1&gt;
 &lt;h2&gt;NC / CAM 加工&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;nx_cam_deburr_planar / nx_cam_deburring3x~5x&lt;/li&gt;
