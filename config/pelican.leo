@@ -840,7 +840,7 @@ Author: cycu
 [Debian]: https://www.debian.org/
 [Ubuntu]: https://ubuntu.com/download/server
 [pve-installation.html]: https://pve.proxmox.com/pve-docs/chapter-pve-installation.html</t>
-<t tx="leo.20260103104814.1" _mod_time="4741da564318be50912e">@language md
+<t tx="leo.20260103104814.1" _mod_time="4741da56c9f8395dcc2e">@language md
 ---
 Title: Siemens NX
 Date: 2026-01-03 11:11
@@ -858,22 +858,26 @@ Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，�
 <t tx="leo.20260103105006.1">[設計 Design]
 ====
 
-核心建模 Core Modeling
+[核心建模 Core Modeling]
 ----
 
 [設計 Design]: https://docs.sw.siemens.com/documentation/external/PL20250429951538534/en-US/static/design_day_one/index.html
+
+[核心建模 Core Modeling]: https://www.youtube.com/playlist?list=PLQ140rIt4aOXM0spExL95NrBJNa6BBptJ
 
 * solid_modeling
 * features_modeling
 * free_form_modeling
 * nx_freeform_1 / nx_freeform_2
 * nx_subdivision
-* assemblies / adv_assemblies
+* [assemblies] / adv_assemblies
 * nx_structure_design / structure_weld / ugweld
 * nx_sheet_metal / adv_sheet_metal_dsgn / aero_sheet_metal
 * ug_mold_design / ug_die_design / prog_die_wizard
 * nx_additive_design / nx_lattice_designer / AM 系列
 * nx_plastics_base / nx_easyfill_analysis / nx_easyfill_advanced
+
+[assemblies]: https://www.youtube.com/watch?v=TidyLekmgeQ
 
 系統設計 / 協作 System &amp; Collaboration
 ----

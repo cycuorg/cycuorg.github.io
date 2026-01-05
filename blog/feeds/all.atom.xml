@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CYCU.ORG</title><link href="./" rel="alternate"/><link href="./feeds/all.atom.xml" rel="self"/><id>./</id><updated>2026-01-03T20:32:34.973667+08:00</updated><entry><title>Siemens NX</title><link href="./Siemens-NX.html" rel="alternate"/><published>2026-01-03T11:11:00+08:00</published><updated>2026-01-03T20:32:34.973667+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-03:./Siemens-NX.html</id><summary type="html">&lt;p&gt;Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CYCU.ORG</title><link href="https://cycu.org/blog/" rel="alternate"/><link href="https://cycu.org/blog/feeds/all.atom.xml" rel="self"/><id>https://cycu.org/blog/</id><updated>2026-01-05T10:54:24.896350+08:00</updated><entry><title>Siemens NX</title><link href="https://cycu.org/blog/Siemens-NX.html" rel="alternate"/><published>2026-01-03T11:11:00+08:00</published><updated>2026-01-05T10:54:24.896350+08:00</updated><author><name>cycu</name></author><id>tag:cycu.org,2026-01-03:/blog/Siemens-NX.html</id><summary type="html">&lt;p&gt;Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。&lt;/p&gt;
 
 
 &lt;h1&gt;&lt;a href="https://docs.sw.siemens.com/documentation/external/PL20250429951538534/en-US/static/design_day_one/index.html"&gt;設計 Design&lt;/a&gt;&lt;/h1&gt;
-&lt;h2&gt;核心建模 Core Modeling&lt;/h2&gt;
+&lt;h2&gt;&lt;a href="https://www.youtube.com/playlist?list=PLQ140rIt4aOXM0spExL95NrBJNa6BBptJ"&gt;核心建模 Core Modeling&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;solid_modeling&lt;/li&gt;
 &lt;li&gt;features_modeling&lt;/li&gt;
 &lt;li&gt;free_form_modeling&lt;/li&gt;
 &lt;li&gt;nx_freeform_1 / nx_freeform_2&lt;/li&gt;
 &lt;li&gt;nx_subdivision&lt;/li&gt;
-&lt;li&gt;assemblies / adv_assemblies&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=TidyLekmgeQ"&gt;assemblies&lt;/a&gt; / adv_assemblies&lt;/li&gt;
 &lt;li&gt;nx_structure_design / structure_weld / ugweld&lt;/li&gt;
 &lt;li&gt;nx_sheet_metal / adv_sheet_metal_dsgn / aero_sheet_metal&lt;/li&gt;
 &lt;li&gt;ug_mold_design / ug_die_design / prog_die_wizard&lt;/li&gt;
@@ -112,7 +112,7 @@
 &lt;li&gt;nx_ship_basic / nx_ship_concept / nx_ship_detail / nx_ship_drafting&lt;/li&gt;
 &lt;li&gt;nx_ship_gen_arrange / nx_ship_mfg_prep / nx_mbpm_bill_of_proc&lt;/li&gt;
 &lt;li&gt;nx_layout / nx_rotary_floor_finish&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Tech"/><category term="NX"/></entry><entry><title>Bind9</title><link href="./bind9-setup.html" rel="alternate"/><published>2026-01-02T11:11:00+08:00</published><updated>2026-01-02T11:39:07.123105+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-02:./bind9-setup.html</id><summary type="html">&lt;p&gt;假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?&lt;/p&gt;
+&lt;/ul&gt;</content><category term="Tech"/><category term="NX"/></entry><entry><title>Bind9</title><link href="https://cycu.org/blog/bind9-setup.html" rel="alternate"/><published>2026-01-02T11:11:00+08:00</published><updated>2026-01-02T11:39:07.123105+08:00</updated><author><name>cycu</name></author><id>tag:cycu.org,2026-01-02:/blog/bind9-setup.html</id><summary type="html">&lt;p&gt;假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?&lt;/p&gt;
 
 
@@ -123,7 +123,7 @@
 &lt;p&gt;在一台伺服器上直接安裝 &lt;a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview"&gt;Proxmox VE&lt;/a&gt;，然後先設置一台 VM (虛擬主機)，然後其他兩台則僅改變 netplan 中的 .yaml 網路設定檔案，/etc/bind/ 中的對應網域設定檔案，/etc/hosts 以及 /etc/hostname 等。&lt;/p&gt;
 &lt;p&gt;設定完成之後，一旦各網域主機內容有所更動，可以採用 sudo systemctl restart bind9 重新啟動 bind9 服務。&lt;/p&gt;
 &lt;h2&gt;&lt;a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview"&gt;Proxmox VE&lt;/a&gt; 安裝&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview"&gt;Proxmox VE&lt;/a&gt; 是 &lt;a href="https://www.debian.org/"&gt;Debian&lt;/a&gt; 分支，操作系統所使用的指令與 &lt;a href="https://ubuntu.com/download/server"&gt;Ubuntu&lt;/a&gt; 相同。詳細的 &lt;a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview"&gt;Proxmox VE&lt;/a&gt; 安裝步驟，可以參見&lt;a href="https://pve.proxmox.com/pve-docs/chapter-pve-installation.html"&gt;pve-installation.html&lt;/a&gt;。&lt;/p&gt;</content><category term="Tech"/><category term="bind9"/></entry><entry><title>cycu.org blog 啟動</title><link href="./2026-cycuorg-blog-started.html" rel="alternate"/><published>2026-01-01T11:11:00+08:00</published><updated>2026-01-02T11:18:01.580008+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-01:./2026-cycuorg-blog-started.html</id><summary type="html">&lt;p&gt;2026 年首日，啟動 cycu.org 網誌，Tech 類別只談技術，其他沒有。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview"&gt;Proxmox VE&lt;/a&gt; 是 &lt;a href="https://www.debian.org/"&gt;Debian&lt;/a&gt; 分支，操作系統所使用的指令與 &lt;a href="https://ubuntu.com/download/server"&gt;Ubuntu&lt;/a&gt; 相同。詳細的 &lt;a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview"&gt;Proxmox VE&lt;/a&gt; 安裝步驟，可以參見&lt;a href="https://pve.proxmox.com/pve-docs/chapter-pve-installation.html"&gt;pve-installation.html&lt;/a&gt;。&lt;/p&gt;</content><category term="Tech"/><category term="bind9"/></entry><entry><title>cycu.org blog 啟動</title><link href="https://cycu.org/blog/2026-cycuorg-blog-started.html" rel="alternate"/><published>2026-01-01T11:11:00+08:00</published><updated>2026-01-02T11:18:01.580008+08:00</updated><author><name>cycu</name></author><id>tag:cycu.org,2026-01-01:/blog/2026-cycuorg-blog-started.html</id><summary type="html">&lt;p&gt;2026 年首日，啟動 cycu.org 網誌，Tech 類別只談技術，其他沒有。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2026 年首日，啟動 cycu.org 網誌，Tech 類別只談技術，其他沒有。&lt;/p&gt;
 
 
