@@ -83,6 +83,9 @@
 <v t="leo.20260103104814.1"><vh>@clean 20260103.md</vh>
 <v t="leo.20260103105006.1"><vh>Siemens NX</vh></v>
 </v>
+<v t="leo.20260114203640.1"><vh>@clean 20260114.md</vh>
+<v t="leo.20260114204551.1"><vh>Gates</vh></v>
+</v>
 </v>
 </v>
 <v t="yen.20170108171733.83"><vh>產生 .key 與 .crt 指令</vh></v>
@@ -997,6 +1000,74 @@ CAM 後處理 / 整合
 * nx_ship_gen_arrange / nx_ship_mfg_prep / nx_mbpm_bill_of_proc
 * nx_layout / nx_rotary_floor_finish
 
+</t>
+<t tx="leo.20260114203640.1" _mod_time="4741da59eb2fbd8a852e">@language md
+---
+Title: Gates
+Date: 2026-01-03 11:11
+Category: English
+Tags: Bill Gates
+Slug: Bill_Gates
+Author: cycu
+---
+
+Gates 是一本 1993 年出版，由 [Stephen Manes] 與 Paul Andrew 所撰寫的傳記書，厚度超過 400 頁，光是開章第一頁，就有十幾個值得查詢的英文單字。
+[Stephen Manes]: https://en.wikipedia.org/wiki/Stephen_Manes
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20260114204551.1">[tousle]haired - 亂蓬蓬的頭髮，而用來解釋 [tousle] 的英文說明裡，又有一個 [muss] 動詞，指弄亂頭髮
+
+The [tousle]haired girl ran through the meadow, her wild curls bouncing in the breeze. (那個頭髮亂蓬蓬的女孩穿過草地，她的捲髮在微風中跳動。)
+
+[tousle]: https://www.merriam-webster.com/dictionary/tousle
+[muss]: https://www.merriam-webster.com/dictionary/muss
+
+[incarnation] - 在此指具象轉化，若用在佛教則指轉世，其中用來解釋 [incarnation] 中用到 [diety] 則是神祇的意思。
+
+Many people believe that the Dalai Lama is the incarnation of [Avalokiteshvara], the [Bodhisattva] of Compassion. (許多人相信達賴喇嘛是觀音菩薩的化身，慈悲的菩薩。)
+
+解釋 [Bodhisattva]，出現 [refrains] 通常以 [refrains] from 使用，表示克制自己從事某事的意思。
+[Bodhisattva] 意指覺者，音譯也作菩提薩摩訶。
+
+在文章中，作者這樣描述 1990 年 5 月 22 日 Windows 3.0 正式公開時:
+
+&amp;ldquo; As he rocked back and forth in the wings of Manhattan's City Center Theater, the hyperkinetic, touslehaired thirty-four-year-old computer programmer, tycoon, Harvard dropout, and multibillionaire was about to deliver the most important presentation of his presentation-dilled carrer. &amp;rdquo; (當他在曼哈頓市中心劇院的舞台邊緣來回搖擺時，這位超活躍、亂蓬蓬頭髮的三十四歲電腦程式設計師、企業大亨、哈佛輟學生和億萬富翁，正準備進行他職業生涯中最重要的報告——一場充滿報告的職業生涯中的最重要的一次。)
+
+接著說:
+
+&amp;ldquo; Witness the transformation! It was the theme of the day, the slogan for the biggest, splashest software rollout yet concocted. It was emblazoned on posters, flyers, buttons. It sournded like the mantra of some bizarre religious cult -- which in some ways it was. &amp;rdquo; (「見證這場變革！」這是當天的主題，也是迄今為止最盛大、最引人注目的軟體發佈活動的口號。它出現在海報、傳單、胸章上。聽起來就像某個奇異宗教教派的座右銘——從某些角度來看，的確如此。)
+
+但從當時的影片來看，Bill 的頭髮並沒有非常蓬亂:
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/hyBU7F8dEVQ?si=XGD8LOH1l4xw4Bry" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+
+Windows 3.0 功能介紹影片:
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/mF4hT9bvvFk?si=2kRe9AHZMohpcX0f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+
+介紹 Windows 3.1 的 [PC Computing 雜誌]。
+
+[PC Computing 雜誌]: https://archive.org/details/pc_computing-1992_05/page/350/mode/2up
+
+[Avalokiteshvara]: https://en.wikipedia.org/wiki/Avalokite%C5%9Bvara
+[Bodhisattva]: https://www.merriam-webster.com/dictionary/bodhisattva
+[refrains]: https://www.merriam-webster.com/dictionary/refrains
+[incarnation]: https://www.merriam-webster.com/dictionary/incarnation
+[diety]: https://www.merriam-webster.com/dictionary/deity
+[splashiest] - 指最引人注目的，解釋中則出現 [ostentatious]，則指顯耀浮誇，特別招搖的意思。
+[splashiest]: https://www.merriam-webster.com/dictionary/splashiest
+[ostentatious]: https://www.merriam-webster.com/dictionary/ostentatious
+
+[concoct] - 指調製、編造、創新或發明。與 [devise] 、 [fabricate]、[conceive] 意思相近。
+[concoct]: https://www.merriam-webster.com/dictionary/concoct
+[devise]: https://www.merriam-webster.com/dictionary/devise
+[fabricate]: https://www.merriam-webster.com/dictionary/fabricate
+[conceive]: https://www.merriam-webster.com/dictionary/conceive
+[emblazon] - 特指大肆宣揚，[extol] 則是高度讚揚。
+[emblazon]: https://www.merriam-webster.com/dictionary/emblazon
+[extol]: https://www.merriam-webster.com/dictionary/extol
 </t>
 <t tx="yen.20170108171733.1"></t>
 <t tx="yen.20170108171733.2">@language python

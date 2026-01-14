@@ -4,113 +4,134 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://cycu.org/blog/</loc>
-<lastmod>2026-01-05T10:54:36-00:00</lastmod>
+<loc>./</loc>
+<lastmod>2026-01-14T22:49:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/archives.html</loc>
-<lastmod>2026-01-05T10:54:36-00:00</lastmod>
+<loc>./archives.html</loc>
+<lastmod>2026-01-14T22:49:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tags.html</loc>
-<lastmod>2026-01-05T10:54:36-00:00</lastmod>
+<loc>./tags.html</loc>
+<lastmod>2026-01-14T22:49:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/categories.html</loc>
-<lastmod>2026-01-05T10:54:36-00:00</lastmod>
+<loc>./categories.html</loc>
+<lastmod>2026-01-14T22:49:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/pages/about/</loc>
+<loc>./pages/about/</loc>
 <lastmod>2025-12-29T20:47:55+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/Siemens-NX.html</loc>
+<loc>./Bill_Gates.html</loc>
+<lastmod>2026-01-14T22:48:30+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>./Siemens-NX.html</loc>
 <lastmod>2026-01-05T10:54:24+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/bind9-setup.html</loc>
+<loc>./bind9-setup.html</loc>
 <lastmod>2026-01-02T11:39:07+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/2026-cycuorg-blog-started.html</loc>
+<loc>./2026-cycuorg-blog-started.html</loc>
 <lastmod>2026-01-02T11:18:01+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/category/tech.html</loc>
+<loc>./category/english.html</loc>
+<lastmod>2026-01-14T22:48:30+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>./category/tech.html</loc>
 <lastmod>2026-01-05T10:54:24+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tag/nx.html</loc>
+<loc>./tag/bill-gates.html</loc>
+<lastmod>2026-01-14T22:48:30+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>./tag/nx.html</loc>
 <lastmod>2026-01-05T10:54:24+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tag/bind9.html</loc>
+<loc>./tag/bind9.html</loc>
 <lastmod>2026-01-02T11:39:07+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tag/cycuorg.html</loc>
+<loc>./tag/cycuorg.html</loc>
 <lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tag/programming.html</loc>
+<loc>./tag/programming.html</loc>
 <lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tag/mcad.html</loc>
+<loc>./tag/mcad.html</loc>
 <lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/tag/simulation.html</loc>
+<loc>./tag/simulation.html</loc>
 <lastmod>2026-01-02T11:18:01+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cycu.org/blog/author/cycu.html</loc>
-<lastmod>2026-01-05T10:54:24+08:06</lastmod>
+<loc>./author/cycu.html</loc>
+<lastmod>2026-01-14T22:48:30+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-  <title>Bind9</title>
+  <title>Gates</title>
 
 
   <meta name="HandheldFriendly" content="True" />
@@ -40,29 +40,29 @@
   <![endif]-->
 
 
-    <link href="./bind9-setup.html" rel="canonical" />
+    <link href="./Bill_Gates.html" rel="canonical" />
 
-        <meta name="description" content="假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?">
+        <meta name="description" content="Gates 是一本 1993 年出版，由 Stephen Manes 與 Paul Andrew 所撰寫的傳記書，厚度超過 400 頁，光是開章第一頁，就有十幾個值得查詢的英文單字。">
 
         <meta name="author" content="cycu">
 
-        <meta name="tags" content="bind9">
+        <meta name="tags" content="Bill Gates">
 
 
 
 
 <!-- Open Graph -->
 <meta property="og:site_name" content="CYCU.ORG"/>
-<meta property="og:title" content="Bind9"/>
-<meta property="og:description" content="假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?"/>
+<meta property="og:title" content="Gates"/>
+<meta property="og:description" content="Gates 是一本 1993 年出版，由 Stephen Manes 與 Paul Andrew 所撰寫的傳記書，厚度超過 400 頁，光是開章第一頁，就有十幾個值得查詢的英文單字。"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./bind9-setup.html"/>
+<meta property="og:url" content="./Bill_Gates.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2026-01-02 11:11:00+08:00"/>
-<meta property="article:modified_time" content="2026-01-02 11:39:07.123105+08:00"/>
+<meta property="article:published_time" content="2026-01-03 11:11:00+08:00"/>
+<meta property="article:modified_time" content="2026-01-14 22:48:30.961580+08:00"/>
 <meta property="article:author" content="./author/cycu.html">
-<meta property="article:section" content="Tech"/>
-<meta property="article:tag" content="bind9"/>
+<meta property="article:section" content="English"/>
+<meta property="article:tag" content="Bill Gates"/>
 <meta property="og:image" content="./theme/images/post-bg.jpg">
 
 <!-- Twitter Card -->
@@ -71,18 +71,18 @@
 {
   "@context": "http://schema.org",
   "@type": "Article",
-  "name": "Bind9",
-  "headline": "Bind9",
-  "datePublished": "2026-01-02 11:11:00+08:00",
-  "dateModified": "2026-01-02 11:39:07.123105+08:00",
+  "name": "Gates",
+  "headline": "Gates",
+  "datePublished": "2026-01-03 11:11:00+08:00",
+  "dateModified": "2026-01-14 22:48:30.961580+08:00",
   "author": {
     "@type": "Person",
     "name": "cycu",
     "url": "./author/cycu.html"
   },
   "image": "./theme/images/post-bg.jpg",
-  "url": "./bind9-setup.html",
-  "description": "假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?"
+  "url": "./Bill_Gates.html",
+  "description": "Gates 是一本 1993 年出版，由 Stephen Manes 與 Paul Andrew 所撰寫的傳記書，厚度超過 400 頁，光是開章第一頁，就有十幾個值得查詢的英文單字。"
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -197,14 +197,14 @@ init_mathjax();
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
           </span>
         </nav>
-        <h1 class="post-title">Bind9</h1>
+        <h1 class="post-title">Gates</h1>
         <!-- TODO : Proper class for headline -->
         <span class="post-meta">
                 <a href="./author/cycu.html">Cycu</a>
-            | <time datetime="週五 02 一月 2026">週五 02 一月 2026</time>
+            | <time datetime="週六 03 一月 2026">週六 03 一月 2026</time>
         </span>
         <!-- TODO : Modified check -->
-            <span class="post-meta"> | Updated on 週五 02 一月 2026</span>
+            <span class="post-meta"> | Updated on 週三 14 一月 2026</span>
             <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -224,35 +224,47 @@ init_mathjax();
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <p>假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?</p>
+                <p>Gates 是一本 1993 年出版，由 <a href="https://en.wikipedia.org/wiki/Stephen_Manes">Stephen Manes</a> 與 Paul Andrew 所撰寫的傳記書，厚度超過 400 頁，光是開章第一頁，就有十幾個值得查詢的英文單字。</p>
 
 
-<h2>DNS 伺服器</h2>
-<p><a href="https://www.isc.org/bind/">Bind 9</a> 是一套 DNS 伺服器程式，假設我們好不容易取得以下三個 domain name 的註冊與管理權: mde.nowhere、eng.nowhere 以及 rocket.nowhere，該如何進行管理?</p>
-<p>假設這三個網域的管理 IPv4 分別為 17.3、17.6 與 17.8，而 IPv6 則對應為: 17::3、17::6 以及 17::8，接下決定要使用 Ubuntu server 進行管理，而且每個網域僅啟動一台 DNS server (照理說應該要至少有兩台)。</p>
-<p>以下就是假想的管理作為:</p>
-<p>在一台伺服器上直接安裝 <a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview">Proxmox VE</a>，然後先設置一台 VM (虛擬主機)，然後其他兩台則僅改變 netplan 中的 .yaml 網路設定檔案，/etc/bind/ 中的對應網域設定檔案，/etc/hosts 以及 /etc/hostname 等。</p>
-<p>設定完成之後，一旦各網域主機內容有所更動，可以採用 sudo systemctl restart bind9 重新啟動 bind9 服務。</p>
-<h2><a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview">Proxmox VE</a> 安裝</h2>
-<p><a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview">Proxmox VE</a> 是 <a href="https://www.debian.org/">Debian</a> 分支，操作系統所使用的指令與 <a href="https://ubuntu.com/download/server">Ubuntu</a> 相同。詳細的 <a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview">Proxmox VE</a> 安裝步驟，可以參見<a href="https://pve.proxmox.com/pve-docs/chapter-pve-installation.html">pve-installation.html</a>。</p>
+<p><a href="https://www.merriam-webster.com/dictionary/tousle">tousle</a>haired - 亂蓬蓬的頭髮，而用來解釋 <a href="https://www.merriam-webster.com/dictionary/tousle">tousle</a> 的英文說明裡，又有一個 <a href="https://www.merriam-webster.com/dictionary/muss">muss</a> 動詞，指弄亂頭髮</p>
+<p>The <a href="https://www.merriam-webster.com/dictionary/tousle">tousle</a>haired girl ran through the meadow, her wild curls bouncing in the breeze. (那個頭髮亂蓬蓬的女孩穿過草地，她的捲髮在微風中跳動。)</p>
+<p><a href="https://www.merriam-webster.com/dictionary/incarnation">incarnation</a> - 在此指具象轉化，若用在佛教則指轉世，其中用來解釋 <a href="https://www.merriam-webster.com/dictionary/incarnation">incarnation</a> 中用到 <a href="https://www.merriam-webster.com/dictionary/deity">diety</a> 則是神祇的意思。</p>
+<p>Many people believe that the Dalai Lama is the incarnation of <a href="https://en.wikipedia.org/wiki/Avalokite%C5%9Bvara">Avalokiteshvara</a>, the <a href="https://www.merriam-webster.com/dictionary/bodhisattva">Bodhisattva</a> of Compassion. (許多人相信達賴喇嘛是觀音菩薩的化身，慈悲的菩薩。)</p>
+<p>解釋 <a href="https://www.merriam-webster.com/dictionary/bodhisattva">Bodhisattva</a>，出現 <a href="https://www.merriam-webster.com/dictionary/refrains">refrains</a> 通常以 <a href="https://www.merriam-webster.com/dictionary/refrains">refrains</a> from 使用，表示克制自己從事某事的意思。
+<a href="https://www.merriam-webster.com/dictionary/bodhisattva">Bodhisattva</a> 意指覺者，音譯也作菩提薩摩訶。</p>
+<p>在文章中，作者這樣描述 1990 年 5 月 22 日 Windows 3.0 正式公開時:</p>
+<p>&ldquo; As he rocked back and forth in the wings of Manhattan's City Center Theater, the hyperkinetic, touslehaired thirty-four-year-old computer programmer, tycoon, Harvard dropout, and multibillionaire was about to deliver the most important presentation of his presentation-dilled carrer. &rdquo; (當他在曼哈頓市中心劇院的舞台邊緣來回搖擺時，這位超活躍、亂蓬蓬頭髮的三十四歲電腦程式設計師、企業大亨、哈佛輟學生和億萬富翁，正準備進行他職業生涯中最重要的報告——一場充滿報告的職業生涯中的最重要的一次。)</p>
+<p>接著說:</p>
+<p>&ldquo; Witness the transformation! It was the theme of the day, the slogan for the biggest, splashest software rollout yet concocted. It was emblazoned on posters, flyers, buttons. It sournded like the mantra of some bizarre religious cult -- which in some ways it was. &rdquo; (「見證這場變革！」這是當天的主題，也是迄今為止最盛大、最引人注目的軟體發佈活動的口號。它出現在海報、傳單、胸章上。聽起來就像某個奇異宗教教派的座右銘——從某些角度來看，的確如此。)</p>
+<p>但從當時的影片來看，Bill 的頭髮並沒有非常蓬亂:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hyBU7F8dEVQ?si=XGD8LOH1l4xw4Bry" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p>Windows 3.0 功能介紹影片:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mF4hT9bvvFk?si=2kRe9AHZMohpcX0f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p>介紹 Windows 3.1 的 <a href="https://archive.org/details/pc_computing-1992_05/page/350/mode/2up">PC Computing 雜誌</a>。</p>
+<p><a href="https://www.merriam-webster.com/dictionary/splashiest">splashiest</a> - 指最引人注目的，解釋中則出現 <a href="https://www.merriam-webster.com/dictionary/ostentatious">ostentatious</a>，則指顯耀浮誇，特別招搖的意思。</p>
+<p><a href="https://www.merriam-webster.com/dictionary/concoct">concoct</a> - 指調製、編造、創新或發明。與 <a href="https://www.merriam-webster.com/dictionary/devise">devise</a> 、 <a href="https://www.merriam-webster.com/dictionary/fabricate">fabricate</a>、<a href="https://www.merriam-webster.com/dictionary/conceive">conceive</a> 意思相近。</p>
+<p><a href="https://www.merriam-webster.com/dictionary/emblazon">emblazon</a> - 特指大肆宣揚，<a href="https://www.merriam-webster.com/dictionary/extol">extol</a> 則是高度讚揚。</p>
             </section>
 
             <section class="post-info">
                 <div class="post-share">
-                    <a class="twitter" href="https://twitter.com/share?text=Bind9&amp;url=./bind9-setup.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <a class="twitter" href="https://twitter.com/share?text=Gates&amp;url=./Bill_Gates.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
                     </a>
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=./bind9-setup.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=./Bill_Gates.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
                     </a>
-                    <a class="googleplus" href="https://plus.google.com/share?url=./bind9-setup.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <a class="googleplus" href="https://plus.google.com/share?url=./Bill_Gates.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
                     </a>
                     <div class="clear"></div>
                 </div>
 
                 <aside class="post-tags">
-<a href="./tag/bind9.html">bind9</a>                </aside>
+<a href="./tag/bill-gates.html">Bill Gates</a>                </aside>
 
                 <div class="clear"></div>
 
@@ -261,18 +273,11 @@ init_mathjax();
 
 
                 <aside class="post-nav">
-                    <a class="post-nav-next" href="./Siemens-NX.html">
-                        <section class="post-nav-teaser">
-                            <i class="ic ic-arrow-left"></i>
-                                <h2 class="post-nav-title">Siemens NX</h2>
-                            <p class="post-nav-excerpt">Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。</p>
-                        </section>
-                    </a>
-                    <a class="post-nav-prev" href="./2026-cycuorg-blog-started.html">
+                    <a class="post-nav-prev" href="./Siemens-NX.html">
                         <section class="post-nav-teaser">
                             <i class="ic ic-arrow-right"></i>
-                                <h2 class="post-nav-title">cycu.org blog 啟動</h2>
-                            <p class="post-nav-excerpt">2026 年首日，啟動 cycu.org 網誌，Tech 類別只談技術，其他沒有。</p>
+                                <h2 class="post-nav-title">Siemens NX</h2>
+                            <p class="post-nav-excerpt">Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。</p>
                         </section>
                     </a>
                     <div class="clear"></div>
