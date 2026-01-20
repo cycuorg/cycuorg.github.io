@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CYCU.ORG</title><link href="./" rel="alternate"/><link href="./feeds/all.atom.xml" rel="self"/><id>./</id><updated>2026-01-14T22:48:30.961580+08:00</updated><entry><title>Gates</title><link href="./Bill_Gates.html" rel="alternate"/><published>2026-01-03T11:11:00+08:00</published><updated>2026-01-14T22:48:30.961580+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-03:./Bill_Gates.html</id><summary type="html">&lt;p&gt;Gates 是一本 1993 年出版，由 &lt;a href="https://en.wikipedia.org/wiki/Stephen_Manes"&gt;Stephen Manes&lt;/a&gt; 與 Paul Andrew 所撰寫的傳記書，厚度超過 400 頁，光是開章第一頁，就有十幾個值得查詢的英文單字。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CYCU.ORG</title><link href="./" rel="alternate"/><link href="./feeds/all.atom.xml" rel="self"/><id>./</id><updated>2026-01-20T20:59:57.418651+08:00</updated><entry><title>Gates</title><link href="./Bill_Gates.html" rel="alternate"/><published>2026-01-03T11:11:00+08:00</published><updated>2026-01-14T22:48:30.961580+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-03:./Bill_Gates.html</id><summary type="html">&lt;p&gt;Gates 是一本 1993 年出版，由 &lt;a href="https://en.wikipedia.org/wiki/Stephen_Manes"&gt;Stephen Manes&lt;/a&gt; 與 Paul Andrew 所撰寫的傳記書，厚度超過 400 頁，光是開章第一頁，就有十幾個值得查詢的英文單字。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Gates 是一本 1993 年出版，由 &lt;a href="https://en.wikipedia.org/wiki/Stephen_Manes"&gt;Stephen Manes&lt;/a&gt; 與 Paul Andrew 所撰寫的傳記書，厚度超過 400 頁，光是開章第一頁，就有十幾個值得查詢的英文單字。&lt;/p&gt;
 
 
@@ -22,7 +22,7 @@
 &lt;p&gt;介紹 Windows 3.1 的 &lt;a href="https://archive.org/details/pc_computing-1992_05/page/350/mode/2up"&gt;PC Computing 雜誌&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.merriam-webster.com/dictionary/splashiest"&gt;splashiest&lt;/a&gt; - 指最引人注目的，解釋中則出現 &lt;a href="https://www.merriam-webster.com/dictionary/ostentatious"&gt;ostentatious&lt;/a&gt;，則指顯耀浮誇，特別招搖的意思。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.merriam-webster.com/dictionary/concoct"&gt;concoct&lt;/a&gt; - 指調製、編造、創新或發明。與 &lt;a href="https://www.merriam-webster.com/dictionary/devise"&gt;devise&lt;/a&gt; 、 &lt;a href="https://www.merriam-webster.com/dictionary/fabricate"&gt;fabricate&lt;/a&gt;、&lt;a href="https://www.merriam-webster.com/dictionary/conceive"&gt;conceive&lt;/a&gt; 意思相近。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.merriam-webster.com/dictionary/emblazon"&gt;emblazon&lt;/a&gt; - 特指大肆宣揚，&lt;a href="https://www.merriam-webster.com/dictionary/extol"&gt;extol&lt;/a&gt; 則是高度讚揚。&lt;/p&gt;</content><category term="English"/><category term="Bill Gates"/></entry><entry><title>Siemens NX</title><link href="./Siemens-NX.html" rel="alternate"/><published>2026-01-03T11:11:00+08:00</published><updated>2026-01-05T10:54:24.896350+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-03:./Siemens-NX.html</id><summary type="html">&lt;p&gt;Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.merriam-webster.com/dictionary/emblazon"&gt;emblazon&lt;/a&gt; - 特指大肆宣揚，&lt;a href="https://www.merriam-webster.com/dictionary/extol"&gt;extol&lt;/a&gt; 則是高度讚揚。&lt;/p&gt;</content><category term="English"/><category term="Bill Gates"/></entry><entry><title>Siemens NX</title><link href="./Siemens-NX.html" rel="alternate"/><published>2026-01-03T11:11:00+08:00</published><updated>2026-01-20T20:59:57.418651+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-03:./Siemens-NX.html</id><summary type="html">&lt;p&gt;Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Siemens NX 是一套集合 CAD、CAE 與 CAM 的完整套件，模組眾多，讓人目不暇給。&lt;/p&gt;
 
 
@@ -135,7 +135,14 @@
 &lt;li&gt;nx_ship_basic / nx_ship_concept / nx_ship_detail / nx_ship_drafting&lt;/li&gt;
 &lt;li&gt;nx_ship_gen_arrange / nx_ship_mfg_prep / nx_mbpm_bill_of_proc&lt;/li&gt;
 &lt;li&gt;nx_layout / nx_rotary_floor_finish&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Tech"/><category term="NX"/></entry><entry><title>Bind9</title><link href="./bind9-setup.html" rel="alternate"/><published>2026-01-02T11:11:00+08:00</published><updated>2026-01-02T11:39:07.123105+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-02:./bind9-setup.html</id><summary type="html">&lt;p&gt;假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?&lt;/p&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Designcenter Open (即先前的 NXOpen)&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.designcenternx_install.designcenternx_installation_wnt"&gt;NX2512 Installation Guide&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.sw.siemens.com/en-US/documents/209349590/PL20250429951538534"&gt;NX2512 Series&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.xid1968491/xid920650"&gt;Designcenter NX Programming Tools help&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.custom_help.gs_snap"&gt;Get Started with NX Snap 2023&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.snap_ref_guide/id1388951"&gt;Snap Reference Guide&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.custom_api.nxopen_python_ref"&gt;Designcenter Open Python Reference Guide&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="NX"/></entry><entry><title>Bind9</title><link href="./bind9-setup.html" rel="alternate"/><published>2026-01-02T11:11:00+08:00</published><updated>2026-01-02T11:39:07.123105+08:00</updated><author><name>cycu</name></author><id>tag:None,2026-01-02:./bind9-setup.html</id><summary type="html">&lt;p&gt;假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;假設我們擁有三個 domain: mde.nowhere、eng.nowhere 以及 rocket.nowhere，應該要如何管理?&lt;/p&gt;
 
 

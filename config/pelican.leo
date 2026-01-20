@@ -843,7 +843,7 @@ Author: cycu
 [Debian]: https://www.debian.org/
 [Ubuntu]: https://ubuntu.com/download/server
 [pve-installation.html]: https://pve.proxmox.com/pve-docs/chapter-pve-installation.html</t>
-<t tx="leo.20260103104814.1" _mod_time="4741da56c9f8395dcc2e">@language md
+<t tx="leo.20260103104814.1" _mod_time="4741da5bdf135acb2e2e">@language md
 ---
 Title: Siemens NX
 Date: 2026-01-03 11:11
@@ -1000,7 +1000,28 @@ CAM 後處理 / 整合
 * nx_ship_gen_arrange / nx_ship_mfg_prep / nx_mbpm_bill_of_proc
 * nx_layout / nx_rotary_floor_finish
 
-</t>
+Designcenter Open (即先前的 NXOpen)
+----
+
+[NX2512 Installation Guide]
+
+[NX2512 Series]
+
+[Designcenter NX Programming Tools help] 
+
+[Get Started with NX Snap 2023] 
+
+[Snap Reference Guide]
+
+[Designcenter Open Python Reference Guide]
+
+[NX2512 Installation Guide]: https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.designcenternx_install.designcenternx_installation_wnt
+[NX2512 Series]: https://docs.sw.siemens.com/en-US/documents/209349590/PL20250429951538534
+[Designcenter Open Python Reference Guide]: https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.custom_api.nxopen_python_ref
+[Designcenter NX Programming Tools help]: https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.xid1968491/xid2091711
+[Get Started with NX Snap 2023]: https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.custom_help.gs_snap
+[Snap Reference Guide]: https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.snap_ref_guide/id1388951
+[Designcenter NX Programming Tools help]: https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.xid1968491/xid920650</t>
 <t tx="leo.20260114203640.1" _mod_time="4741da59eb2fbd8a852e">@language md
 ---
 Title: Gates
