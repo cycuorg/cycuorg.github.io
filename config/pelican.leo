@@ -1022,7 +1022,7 @@ Designcenter Open (即先前的 NXOpen)
 [Get Started with NX Snap 2023]: https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.custom_help.gs_snap
 [Snap Reference Guide]: https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.snap_ref_guide/id1388951
 [Designcenter NX Programming Tools help]: https://docs.sw.siemens.com/en-US/doc/209349590/PL20250429951538534.xid1968491/xid920650</t>
-<t tx="leo.20260114203640.1" _mod_time="4741da59eb2fbd8a852e">@language md
+<t tx="leo.20260114203640.1" _mod_time="4741da5c7235df57712e">@language md
 ---
 Title: Gates
 Date: 2026-01-03 11:11
@@ -1089,6 +1089,15 @@ Windows 3.0 功能介紹影片:
 [emblazon] - 特指大肆宣揚，[extol] 則是高度讚揚。
 [emblazon]: https://www.merriam-webster.com/dictionary/emblazon
 [extol]: https://www.merriam-webster.com/dictionary/extol
+
+數位閱讀
+----
+
+閱讀 400 頁的紙本英文書，是 1990 年代的辛苦事，2004 年 Kindle 正式發布之後，數位閱讀超過 800 頁的 [The Hitchhiker's Guide to the Galaxy]，就容易許多了。
+
+[The Hitchhiker's Guide to the Galaxy]:https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy
+
+&lt;img src="./../images/hitchhikers_guide_to_the_galaxy_reading.png" style="border: 2px solid black;"&gt;&lt;/img&gt;
 </t>
 <t tx="yen.20170108171733.1"></t>
 <t tx="yen.20170108171733.2">@language python
